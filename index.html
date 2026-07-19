@@ -98,11 +98,11 @@
 
         // 2. 一口氣載入 5 個 JSON 檔案
         Promise.all([
-            fetch('./twCounty2010.geo.json').then(res => res.json()), // 陸地
-            fetch('./tra_lines.json').then(res => res.json()),       // 台鐵線
-            fetch('./tra_stations.json').then(res => res.json()),    // 台鐵站
-            fetch('./thsr_lines.json').then(res => res.json()),      // 高鐵線
-            fetch('./thsr_stations.json').then(res => res.json())    // 高鐵站
+            fetch('./data/twCounty2010.geo.json').then(res => res.json()), // 陸地
+            fetch('./data/tra_lines.json').then(res => res.json()),       // 台鐵線
+            fetch('./data/tra_stations.json').then(res => res.json()),    // 台鐵站
+            fetch('./data/thsr_lines.json').then(res => res.json()),      // 高鐵線
+            fetch('./data/thsr_stations.json').then(res => res.json())    // 高鐵站
         ])
         .then(([landData, traLines, traStations, thsrLines, thsrStations]) => {
             
