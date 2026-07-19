@@ -222,12 +222,16 @@
 
                     var stationColor = getLineColor(finalLineId);
                     return L.circleMarker(latlng, {
-                        radius: systemPrefix === null ? 1.8 : 1.3, // 高鐵大點，捷運小點
+                        radius: systemPrefix === null ? 2.5 : 2, // 高鐵大點，捷運小點
                         fillColor: stationColor,
                         color: stationColor,
                         weight: 1,
                         fillOpacity: 1
-                    });
+
+                        // 增加一個寬達 15 像素的「隱形滑鼠偵測外圈」，讓滑鼠靠近就能觸發
+                        stroke: true,
+                        bubbleTooltip: true // 允許泡泡提示提早觸發
+                    }).setStyle({ stroke: true, weight: 15, color: 'transparent' }); // 👈 強制把外框變成 15px 寬的透明點點！
                 },
                 onEachFeature: function (feature, layer) {
                     var model = feature.properties.model || {};
