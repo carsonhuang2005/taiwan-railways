@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>台灣全鐵道路網圖</title>
+    <title>台灣全鐵道路網圖 - Carson Huang' Blog</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
         html, body, #map {
@@ -75,6 +75,7 @@
         var map = L.map('map', {
             zoomSnap: 0.5,
             wheelPxPerZoomLevel: 120
+            preferCanvas: true
         }).setView([23.6, 121.0], 7.5);
 
         // 保留 Leaflet 官方標記與英文版權宣告
