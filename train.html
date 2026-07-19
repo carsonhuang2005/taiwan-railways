@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>極簡黑曜石風 - 台灣全鐵道路網圖</title>
+    <title>台灣全鐵道路網圖</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
         html, body, #map {
@@ -250,7 +250,7 @@
             };
             L.control.layers(null, overlays, { collapsed: false }).addTo(map);
 
-            console.log("雙鐵黑曜石全圖層開關版路網圖渲染成功！");
+            console.log("雙鐵全圖層開關版路網圖渲染成功！");
         })
         .catch(err => {
             console.error("檔案讀取或渲染失敗，請確認檔案路徑是否正確：", err);
