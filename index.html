@@ -29,7 +29,27 @@
             border-radius: 4px;
             box-shadow: 0 2px 6px rgba(0,0,0,0.5);
         }
-       
+        /* 自訂 Home 按鈕樣式 */
+        .leaflet-control-home {
+            background-color: #222 !important;
+            border: 2px solid #444 !important;
+            border-radius: 4px;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .leaflet-control-home:hover {
+            background-color: #333 !important;
+        }
+        .leaflet-control-home svg {
+            fill: #ffffff;
+            width: 16px;
+            height: 16px;
+        }
+        
         /* 🪨 黑曜石控制面板容器 */
         #custom-controls {
             background-color: #222222 !important;
@@ -429,36 +449,51 @@
             tmrtLayer.addTo(map);    tmrtStationsLayer.addTo(map);
             tymcLayer.addTo(map);    tymcStationsLayer.addTo(map);
 
-            // 💡 1. 自製帶有收合按鈕的黑曜石控制表格 HTML
-            var tableHtml = `
-            <div id="custom-controls" class="leaflet-control">
-                <button class="toggle-btn" id="panel-toggle" title="收合/展開">❌</button>
-                <table class="obsidian-table">
-                    <thead>
-                        <tr>
-                            <th>系統</th>
-                            <th>車站</th>
-                            <th>路線</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>臺灣鐵路 (TRA)</td><td><input type="checkbox" data-layer="traStations" checked></td><td><input type="checkbox" data-layer="tra" checked></td></tr>
-                        <tr><td>台灣高鐵 (THSR)</td><td><input type="checkbox" data-layer="thsrStations" checked></td><td><input type="checkbox" data-layer="thsr" checked></td></tr>
-                        <tr><td>臺北捷運 (TRTC)</td><td><input type="checkbox" data-layer="trtcStations" checked></td><td><input type="checkbox" data-layer="trtc" checked></td></tr>
-                        <tr><td>高雄捷運 (KRTC)</td><td><input type="checkbox" data-layer="krtcStations" checked></td><td><input type="checkbox" data-layer="krtc" checked></td></tr>
-                        <tr><td>高雄輕軌 (KLRT)</td><td><input type="checkbox" data-layer="klrtStations" checked></td><td><input type="checkbox" data-layer="klrt" checked></td></tr>
-                        <tr><td>臺中捷運 (TMRT)</td><td><input type="checkbox" data-layer="tmrtStations" checked></td><td><input type="checkbox" data-layer="tmrt" checked></td></tr>
-                        <tr><td>桃園捷運 (TYMC)</td><td><input type="checkbox" data-layer="tymcStations" checked></td><td><input type="checkbox" data-layer="tymc" checked></td></tr>
-                    </tbody>
-                </table>
-            </div>
-            `;
-            
-            // 💡 2. 把表格塞進地圖右上角
-            var controlContainer = document.querySelector('.leaflet-top.leaflet-right');
-            controlContainer.insertAdjacentHTML('beforeend', tableHtml);
-            
-            // 💡 3. 圖層對照表
+// =========================================================================
+            // 💡 自製黑曜石控制面板 (改用 Leaflet 官方標準 Control 擴充，完美防噴錯)
+            // =========================================================================
+            L.Control.ObsidianPanel = L.Control.extend({
+                options: { position: 'topright' }, // 固定在右上角
+                onAdd: function (map) {
+                    // 建立面板外殼
+                    var panel = L.DomUtil.create('div', 'leaflet-control');
+                    panel.id = 'custom-controls';
+                    
+                    // 塞入表格 HTML 內容
+                    panel.innerHTML = `
+                        <button class="toggle-btn" id="panel-toggle" title="收合/展開">❌</button>
+                        <table class="obsidian-table">
+                            <thead>
+                                <tr>
+                                    <th>系統</th>
+                                    <th>車站</th>
+                                    <th>路線</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>臺灣鐵路 (TRA)</td><td><input type="checkbox" data-layer="traStations" checked></td><td><input type="checkbox" data-layer="tra" checked></td></tr>
+                                <tr><td>台灣高鐵 (THSR)</td><td><input type="checkbox" data-layer="thsrStations" checked></td><td><input type="checkbox" data-layer="thsr" checked></td></tr>
+                                <tr><td>臺北捷運 (TRTC)</td><td><input type="checkbox" data-layer="trtcStations" checked></td><td><input type="checkbox" data-layer="trtc" checked></td></tr>
+                                <tr><td>高雄捷運 (KRTC)</td><td><input type="checkbox" data-layer="krtcStations" checked></td><td><input type="checkbox" data-layer="krtc" checked></td></tr>
+                                <tr><td>高雄輕軌 (KLRT)</td><td><input type="checkbox" data-layer="klrtStations" checked></td><td><input type="checkbox" data-layer="klrt" checked></td></tr>
+                                <tr><td>臺中捷運 (TMRT)</td><td><input type="checkbox" data-layer="tmrtStations" checked></td><td><input type="checkbox" data-layer="tmrt" checked></td></tr>
+                                <tr><td>桃園捷運 (TYMC)</td><td><input type="checkbox" data-layer="tymcStations" checked></td><td><input type="checkbox" data-layer="tymc" checked></td></tr>
+                            </tbody>
+                        </table>
+                    `;
+
+                    // 防止地圖跟著滾動與點擊穿透 (在元素建立時立刻綁定防禦)
+                    L.DomEvent.disableScrollPropagation(panel);
+                    L.DomEvent.disableClickPropagation(panel);
+
+                    return panel;
+                }
+            });
+
+            // 將面板掛載到地圖上
+            map.addControl(new L.Control.ObsidianPanel());
+
+            // 💡 圖層對照表
             var layerMap = {
                 'tra': traLayer,             'traStations': traStationsLayer,
                 'thsr': thsrLayer,           'thsrStations': thsrStationsLayer,
@@ -469,15 +504,15 @@
                 'tymc': tymcLayer,           'tymcStations': tymcStationsLayer
             };
             
+            // 抓取剛剛渲染出來的 DOM 元素做事件綁定
             var panel = document.getElementById('custom-controls');
             var toggleBtn = document.getElementById('panel-toggle');
             
-            // 💡 4. 收合/展開功能邏輯
+            // 💡 收合/展開功能邏輯
             toggleBtn.addEventListener('click', function(e) {
                 L.DomEvent.stopPropagation(e);
                 panel.classList.toggle('collapsed');
                 
-                // 依狀態更換按鈕圖示
                 if (panel.classList.contains('collapsed')) {
                     toggleBtn.innerHTML = '☰'; // 縮小時變成圖層選單圖示
                 } else {
@@ -493,7 +528,7 @@
                 }
             });
             
-            // 💡 5. 監聽表格內勾選框的切換動作
+            // 💡 監聽表格內勾選框的切換動作
             document.querySelector('.obsidian-table').addEventListener('change', function (e) {
                 var layerKey = e.target.getAttribute('data-layer');
                 var targetLayer = layerMap[layerKey];
@@ -505,10 +540,6 @@
                     }
                 }
             });
-            
-            // 防止地圖跟著滾動與點擊穿透
-            L.DomEvent.disableScrollPropagation(panel);
-            L.DomEvent.disableClickPropagation(panel);
 
             console.log("全台軌道路網完全體渲染成功！");
         })
