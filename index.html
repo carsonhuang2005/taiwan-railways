@@ -6,13 +6,18 @@
     <title>台灣全鐵道路網圖 - Carson Huang' Blog</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
+        /* 引入 Google Noto Sans TC 字體 */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap');
+        
         html, body, #map {
             margin: 0;
             padding: 0;
             width: 100%;
             height: 100%;
-            background-color: #1a1a1a; /* 極黑背景 */
+            background-color: #1a1a1a;
+            font-family: 'Noto Sans TC', sans-serif; /* ✨ 固定全網頁字體 */
         }
+        
         /* 路線名稱提示框精緻樣式 */
         .line-tooltip {
             background-color: rgba(0, 0, 0, 0.8) !important;
@@ -24,38 +29,89 @@
             border-radius: 4px;
             box-shadow: 0 2px 6px rgba(0,0,0,0.5);
         }
-        /* 自訂 Home 按鈕樣式 */
-        .leaflet-control-home {
-            background-color: #222 !important;
-            border: 2px solid #444 !important;
-            border-radius: 4px;
-            width: 30px;
-            height: 30px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .leaflet-control-home:hover {
-            background-color: #333 !important;
-        }
-        .leaflet-control-home svg {
-            fill: #ffffff;
-            width: 16px;
-            height: 16px;
-        }
-        /* 黑曜石風圖層控制面板樣式 */
+       
+        /* 🚂 全新黑曜石風格：表格式圖層控制面板 */
         .leaflet-control-layers {
             background-color: #222222 !important;
             color: #ffffff !important;
             border: 2px solid #444444 !important;
-            border-radius: 4px;
-            font-family: sans-serif;
-            font-size: 12px;
-            font-weight: bold;
+            border-radius: 8px;
+            padding: 10px !important;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5) !important;
+            font-family: 'Noto Sans TC', sans-serif !important;
         }
+        
+        /* 移除 Leaflet 預設的換行，改用表格排版 */
+        .leaflet-control-layers-overlays {
+            display: table;
+            border-collapse: collapse;
+            width: 220px;
+        }
+        
+        /* 表格的標題橫列 (系統 | 車站 | 路線) */
+        .leaflet-control-layers-overlays::before {
+            content: "系統\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0| 車站 | 路線";
+            display: block;
+            border-bottom: 2px solid #444;
+            padding-bottom: 6px;
+            margin-bottom: 8px;
+            font-size: 12px;
+            color: #888;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        
+        /* 讓每一列橫向排列 */
         .leaflet-control-layers-overlays label {
+            display: table-row !important;
             cursor: pointer;
+        }
+        
+        /* 欄位微調：讓名稱、車站勾選、路線勾選各佔一格 */
+        .leaflet-control-layers-overlays label span {
+            display: table-cell;
+            padding: 6px 4px;
+            vertical-align: middle;
+            font-size: 13px;
+        }
+        
+        /* 讓核取方塊靠右並居中 */
+        .leaflet-control-layers-overlays input {
+            display: table-cell;
+            margin: 0 auto !important;
+            vertical-align: middle;
+        }
+        
+        /* 🪨 黑曜石風自訂核取方塊 (Checkbox) */
+        .leaflet-control-layers-overlays input[type="checkbox"] {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            border: 2px solid #555;
+            border-radius: 4px;
+            background-color: #1a1a1a; /* 黑底 */
+            cursor: pointer;
+            position: relative;
+            transition: all 0.2s ease;
+        }
+        
+        .leaflet-control-layers-overlays input[type="checkbox"]:checked {
+            background-color: #ffffff; /* 勾選時變白底 */
+            border-color: #ffffff;
+        }
+        
+        /* 產生黑色的勾勾 */
+        .leaflet-control-layers-overlays input[type="checkbox"]:checked::after {
+            content: "";
+            position: absolute;
+            left: 4px;
+            top: 1px;
+            width: 4px;
+            height: 8px;
+            border: solid #1a1a1a; /* 黑勾 */
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
         }
     </style>
 </head>
@@ -66,13 +122,14 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
         // 建立獨立的圖層群組（捷運依系統分開，方便使用者細緻開關）
-        var traLayer = L.layerGroup();      // 台鐵
-        var thsrLayer = L.layerGroup();     // 高鐵
-        var trtcLayer = L.layerGroup();     // 北捷
-        var krtcLayer = L.layerGroup();     // 高捷
-        var klrtLayer = L.layerGroup();     // 高雄輕軌
-        var tmrtLayer = L.layerGroup();     // 中捷
-        var tymcLayer = L.layerGroup();     // 桃捷
+        // 將「路線」與「車站」圖層徹底分開宣告，達成表格獨立開關
+        var traLayer = L.layerGroup(),     traStationsLayer = L.layerGroup();
+        var thsrLayer = L.layerGroup(),    thsrStationsLayer = L.layerGroup();
+        var trtcLayer = L.layerGroup(),    trtcStationsLayer = L.layerGroup();
+        var krtcLayer = L.layerGroup(),    krtcStationsLayer = L.layerGroup();
+        var klrtLayer = L.layerGroup(),    klrtStationsLayer = L.layerGroup();
+        var tmrtLayer = L.layerGroup(),    tmrtStationsLayer = L.layerGroup();
+        var tymcLayer = L.layerGroup(),    tymcStationsLayer = L.layerGroup();
 
         // 1. 初始化地圖，將中心點對準台灣（開啟 Canvas 渲染加速）
         var map = L.map('map', {
@@ -167,7 +224,7 @@
                         var targetLayer = e.target;
                         var rawLineId = model.LineID || defaultLineId;
                         targetLayer.setStyle({
-                            weight: systemPrefix === null && rawLineId === "THSR" ? 2.5 : 2,
+                            weight: systemPrefix === null && rawLineId === "THSR" ? 4 : 2,
                             opacity: 0.85
                         });
                     });
@@ -231,7 +288,7 @@
                         // 增加一個寬達 15 像素的「隱形滑鼠偵測外圈」，讓滑鼠靠近就能觸發
                         stroke: true,
                         bubbleTooltip: true // 允許泡泡提示提早觸發
-                    }).setStyle({ stroke: true, weight: 15, color: 'transparent' }); // 👈 強制把外框變成 15px 寬的透明點點！
+                    }).setStyle({ stroke: true, weight: 6, color: 'transparent' }); // 👈 強制把外框變成 6px 寬的透明點點！
                 },
                 onEachFeature: function (feature, layer) {
                     var model = feature.properties.model || {};
@@ -284,9 +341,14 @@
             tymcLines, tymcStations
         ]) => {
             
-            // 2-1. 渲染深灰色台灣陸地底圖
+            // 2-1. 渲染台灣陸地底圖（邊線加粗、顏色微調稍白）
             L.geoJSON(landData, {
-                style: { color: "#262626", weight: 1, fillColor: "#1d1d1d", fillOpacity: 0.9 }
+                style: { 
+                    color: "#383838",     // ✨ 邊線顏色加深加亮
+                    weight: 1.5,          // ✨ 邊線粗細從 1 改為 1.5
+                    fillColor: "#282828", // ✨ 填滿顏色從 #1d1d1d 調白一點到 #282828
+                    fillOpacity: 1.0 
+                }
             }).addTo(map);
 
             // 2-2. 畫線路 (資料來源, 丟進哪個圖層, 系統前綴, 預設代碼)
@@ -299,32 +361,39 @@
             drawRailLines(tymcLines, tymcLayer, "TYMC", "A");
 
             // 2-3. 畫車站 (資料來源, 丟進哪個圖層, 系統前綴, 是否為台鐵)
-            drawStations(traStations, traLayer, null, true);
-            drawStations(thsrStations, thsrLayer, null, false);
-            drawStations(trtcStations, trtcLayer, "TRTC");
-            drawStations(krtcStations, krtcLayer, "KRTC");
-            drawStations(klrtStations, klrtLayer, "KLRT");
-            drawStations(tmrtStations, tmrtLayer, "TMRT");
-            drawStations(tymcStations, tymcLayer, "TYMC");
+            drawStations(traStations, traStationsLayer, null, true);
+            drawStations(thsrStations, thsrStationsLayer, null, false);
+            drawStations(trtcStations, trtcStationsLayer, "TRTC");
+            drawStations(krtcStations, krtcStationsLayer, "KRTC");
+            drawStations(klrtStations, klrtStationsLayer, "KLRT");
+            drawStations(tmrtStations, tmrtStationsLayer, "TMRT");
+            drawStations(tymcStations, tymcStationsLayer, "TYMC");
 
             // 預設全部開啟顯示
-            traLayer.addTo(map);
-            thsrLayer.addTo(map);
-            trtcLayer.addTo(map);
-            krtcLayer.addTo(map);
-            klrtLayer.addTo(map);
-            tmrtLayer.addTo(map);
-            tymcLayer.addTo(map);
+            traLayer.addTo(map);     traStationsLayer.addTo(map);
+            thsrLayer.addTo(map);    thsrStationsLayer.addTo(map);
+            trtcLayer.addTo(map);    trtcStationsLayer.addTo(map);
+            krtcLayer.addTo(map);    krtcStationsLayer.addTo(map);
+            klrtLayer.addTo(map);    klrtStationsLayer.addTo(map);
+            tmrtLayer.addTo(map);    tmrtStationsLayer.addTo(map);
+            tymcLayer.addTo(map);    tymcStationsLayer.addTo(map);
 
-            // 右上角黑曜石風控制面板（這次分家分得很細，極有質感！）
+            // 💡 右上角控制面版：車站寫前面、路線寫後面，完美契合「系統 | 車站 | 路線」表格！
             var overlays = {
-                "臺灣鐵路 (TRA)": traLayer,
-                "台灣高鐵 (THSR)": thsrLayer,
-                "臺北捷運 (TRTC)": trtcLayer,
-                "高雄捷運 (KRTC)": krtcLayer,
-                "高雄輕軌 (KLRT)": klrtLayer,
-                "臺中捷運 (TMRT)": tmrtLayer,
-                "桃園捷運 (TYMC)": tymcLayer
+                "臺灣鐵路 (TRA)": traStationsLayer,
+                " ": traLayer,
+                "台灣高鐵 (THSR)": thsrStationsLayer,
+                "  ": thsrLayer,
+                "臺北捷運 (TRTC)": trtcStationsLayer,
+                "   ": trtcLayer,
+                "高雄捷運 (KRTC)": krtcStationsLayer,
+                "    ": krtcLayer,
+                "高雄輕軌 (KLRT)": klrtStationsLayer,
+                "     ": klrtLayer,
+                "臺中捷運 (TMRT)": tmrtStationsLayer,
+                "      ": tmrtLayer,
+                "桃園捷運 (TYMC)": tymcStationsLayer,
+                "       ": tymcLayer
             };
             L.control.layers(null, overlays, { collapsed: false }).addTo(map);
 
