@@ -1,0 +1,575 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.324651, 22.604625]
+      },
+      "properties": {
+        "model": {
+          "StationID": "C1",
+          "StationName": "籬仔內",
+          "UpdateDate": "2024-03-19T00:00:00",
+          "CheckDate": "2026-07-17T00:05:34.613"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.319799, 22.599533]
+      },
+      "properties": {
+        "model": {
+          "StationID": "C2",
+          "StationName": "凱旋瑞田",
+          "UpdateDate": "2024-03-19T00:00:00",
+          "CheckDate": "2026-07-17T00:05:34.613"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.315368, 22.595503]
+      },
+      "properties": {
+        "model": {
+          "StationID": "C3",
+          "StationName": "前鎮之星",
+          "UpdateDate": "2024-03-19T00:00:00",
+          "CheckDate": "2026-07-17T00:05:34.613"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.310517, 22.593656]
+      },
+      "properties": {
+        "model": {
+          "StationID": "C4",
+          "StationName": "凱旋中華",
+          "UpdateDate": "2024-03-19T00:00:00",
+          "CheckDate": "2026-07-17T00:05:34.613"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.305004, 22.594886]
+      },
+      "properties": {
+        "model": {
+          "StationID": "C5",
+          "StationName": "夢時代",
+          "UpdateDate": "2024-03-19T00:00:00",
+          "CheckDate": "2026-07-17T00:05:34.613"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.30266, 22.600961]
+      },
+      "properties": {
+        "model": {
+          "StationID": "C6",
+          "StationName": "經貿園區",
+          "UpdateDate": "2024-03-19T00:00:00",
+          "CheckDate": "2026-07-17T00:05:34.613"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.300832, 22.605684]
+      },
+      "properties": {
+        "model": {
+          "StationID": "C7",
+          "StationName": "軟體園區",
+          "UpdateDate": "2024-03-19T00:00:00",
+          "CheckDate": "2026-07-17T00:05:34.613"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.298022, 22.610133]
+      },
+      "properties": {
+        "model": {
+          "StationID": "C8",
+          "StationName": "高雄展覽館",
+          "UpdateDate": "2024-03-19T00:00:00",
+          "CheckDate": "2026-07-17T00:05:34.613"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.293424, 22.611587]
+      },
+      "properties": {
+        "model": {
+          "StationID": "C9",
+          "StationName": "旅運中心",
+          "UpdateDate": "2024-03-19T00:00:00",
+          "CheckDate": "2026-07-17T00:05:34.613"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.293234, 22.616805]
+      },
+      "properties": {
+        "model": {
+          "StationID": "C10",
+          "StationName": "光榮碼頭",
+          "UpdateDate": "2024-03-19T00:00:00",
+          "CheckDate": "2026-07-17T00:05:34.613"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.289466, 22.619315]
+      },
+      "properties": {
+        "model": {
+          "StationID": "C11",
+          "StationName": "真愛碼頭",
+          "UpdateDate": "2024-03-19T00:00:00",
+          "CheckDate": "2026-07-17T00:05:34.613"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.284204, 22.618562]
+      },
+      "properties": {
+        "model": {
+          "StationID": "C12",
+          "StationName": "駁二大義",
+          "UpdateDate": "2024-03-19T00:00:00",
+          "CheckDate": "2026-07-17T00:05:34.613"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.279923, 22.6205]
+      },
+      "properties": {
+        "model": {
+          "StationID": "C13",
+          "StationName": "駁二蓬萊",
+          "UpdateDate": "2024-03-19T00:00:00",
+          "CheckDate": "2026-07-17T00:05:34.613"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.275849, 22.621617]
+      },
+      "properties": {
+        "model": {
+          "StationID": "C14",
+          "StationName": "哈瑪星",
+          "UpdateDate": "2024-03-19T00:00:00",
+          "CheckDate": "2026-07-17T00:05:34.613"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.278601, 22.626541]
+      },
+      "properties": {
+        "model": {
+          "StationID": "C15",
+          "StationName": "壽山公園站",
+          "UpdateDate": "2024-03-19T00:00:00",
+          "CheckDate": "2026-07-17T00:05:34.613"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.2807, 22.62959]
+      },
+      "properties": {
+        "model": {
+          "StationID": "C16",
+          "StationName": "文武聖殿站",
+          "UpdateDate": "2024-03-19T00:00:00",
+          "CheckDate": "2026-07-17T00:05:34.613"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.282567, 22.635988]
+      },
+      "properties": {
+        "model": {
+          "StationID": "C17",
+          "StationName": "鼓山區公所站",
+          "UpdateDate": "2024-03-19T00:00:00",
+          "CheckDate": "2026-07-17T00:05:34.613"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.281067, 22.642037]
+      },
+      "properties": {
+        "model": {
+          "StationID": "C18",
+          "StationName": "鼓山",
+          "UpdateDate": "2024-03-19T00:00:00",
+          "CheckDate": "2026-07-17T00:05:34.613"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.281415, 22.647089]
+      },
+      "properties": {
+        "model": {
+          "StationID": "C19",
+          "StationName": "馬卡道",
+          "UpdateDate": "2024-03-19T00:00:00",
+          "CheckDate": "2026-07-17T00:05:34.613"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.281669, 22.652074]
+      },
+      "properties": {
+        "model": {
+          "StationID": "C20",
+          "StationName": "臺鐵美術館",
+          "UpdateDate": "2024-03-19T00:00:00",
+          "CheckDate": "2026-07-17T00:05:34.613"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.282868, 22.65497]
+      },
+      "properties": {
+        "model": {
+          "StationID": "C21A",
+          "StationName": "內惟藝術中心",
+          "UpdateDate": "2024-03-19T00:00:00",
+          "CheckDate": "2026-07-17T00:05:34.613"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.287437, 22.655026]
+      },
+      "properties": {
+        "model": {
+          "StationID": "C21",
+          "StationName": "美術館",
+          "UpdateDate": "2024-03-19T00:00:00",
+          "CheckDate": "2026-07-17T00:05:34.613"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.290918, 22.654827]
+      },
+      "properties": {
+        "model": {
+          "StationID": "C22",
+          "StationName": "聯合醫院",
+          "UpdateDate": "2024-03-19T00:00:00",
+          "CheckDate": "2026-07-17T00:05:34.613"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.295042, 22.654493]
+      },
+      "properties": {
+        "model": {
+          "StationID": "C23",
+          "StationName": "龍華國小",
+          "UpdateDate": "2024-03-19T00:00:00",
+          "CheckDate": "2026-07-17T00:05:34.613"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.30282, 22.65604]
+      },
+      "properties": {
+        "model": {
+          "StationID": "C24",
+          "StationName": "愛河之心",
+          "UpdateDate": "2024-03-19T00:00:00",
+          "CheckDate": "2026-07-17T00:05:34.613"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.3083, 22.6567]
+      },
+      "properties": {
+        "model": {
+          "StationID": "C25",
+          "StationName": "新上國小",
+          "UpdateDate": "2024-03-19T00:00:00",
+          "CheckDate": "2026-07-17T00:05:34.613"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.3149, 22.6556]
+      },
+      "properties": {
+        "model": {
+          "StationID": "C26",
+          "StationName": "大順民族",
+          "UpdateDate": "2024-03-19T00:00:00",
+          "CheckDate": "2026-07-17T00:05:34.613"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.3185, 22.6538]
+      },
+      "properties": {
+        "model": {
+          "StationID": "C27",
+          "StationName": "灣仔內(大順鼎山)",
+          "UpdateDate": "2024-03-19T00:00:00",
+          "CheckDate": "2026-07-17T00:05:34.613"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.32385, 22.64996]
+      },
+      "properties": {
+        "model": {
+          "StationID": "C28",
+          "StationName": "高雄高工",
+          "UpdateDate": "2024-03-19T00:00:00",
+          "CheckDate": "2026-07-17T00:05:34.613"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.3262, 22.6442]
+      },
+      "properties": {
+        "model": {
+          "StationID": "C29",
+          "StationName": "樹德家商",
+          "UpdateDate": "2024-03-19T00:00:00",
+          "CheckDate": "2026-07-17T00:05:34.613"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.3274, 22.6375]
+      },
+      "properties": {
+        "model": {
+          "StationID": "C30",
+          "StationName": "科工館",
+          "UpdateDate": "2024-03-19T00:00:00",
+          "CheckDate": "2026-07-17T00:05:34.613"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.325819, 22.633278]
+      },
+      "properties": {
+        "model": {
+          "StationID": "C31",
+          "StationName": "聖功醫院",
+          "UpdateDate": "2024-03-19T00:00:00",
+          "CheckDate": "2026-07-17T00:05:34.613"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.322785, 22.629433]
+      },
+      "properties": {
+        "model": {
+          "StationID": "C32",
+          "StationName": "凱旋公園站",
+          "UpdateDate": "2024-03-19T00:00:00",
+          "CheckDate": "2026-07-17T00:05:34.613"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.3237, 22.6252]
+      },
+      "properties": {
+        "model": {
+          "StationID": "C33",
+          "StationName": "衛生局站",
+          "UpdateDate": "2024-03-19T00:00:00",
+          "CheckDate": "2026-07-17T00:05:34.613"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.3252, 22.62121]
+      },
+      "properties": {
+        "model": {
+          "StationID": "C34",
+          "StationName": "五權國小站",
+          "UpdateDate": "2024-03-19T00:00:00",
+          "CheckDate": "2026-07-17T00:05:34.613"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.3269, 22.61693]
+      },
+      "properties": {
+        "model": {
+          "StationID": "C35",
+          "StationName": "凱旋武昌站",
+          "UpdateDate": "2024-03-19T00:00:00",
+          "CheckDate": "2026-07-17T00:05:34.613"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.3272, 22.61253]
+      },
+      "properties": {
+        "model": {
+          "StationID": "C36",
+          "StationName": "凱旋二聖站",
+          "UpdateDate": "2024-03-19T00:00:00",
+          "CheckDate": "2026-07-17T00:05:34.613"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.3261, 22.6085]
+      },
+      "properties": {
+        "model": {
+          "StationID": "C37",
+          "StationName": "輕軌機廠站",
+          "UpdateDate": "2024-03-19T00:00:00",
+          "CheckDate": "2026-07-17T00:05:34.613"
+        }
+      }
+    }
+  ]
+}

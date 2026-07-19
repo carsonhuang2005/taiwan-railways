@@ -1,0 +1,590 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.274508, 22.621492]
+      },
+      "properties": {
+        "model": {
+          "StationID": "O1",
+          "StationName": "哈瑪星",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:25.867"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.283777, 22.623501]
+      },
+      "properties": {
+        "model": {
+          "StationID": "O2",
+          "StationName": "鹽埕埔",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:25.867"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.294766, 22.628933]
+      },
+      "properties": {
+        "model": {
+          "StationID": "O4",
+          "StationName": "前金",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:25.867"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.303254, 22.631278]
+      },
+      "properties": {
+        "model": {
+          "StationID": "O5",
+          "StationName": "美麗島",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:25.867"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.311391, 22.630675]
+      },
+      "properties": {
+        "model": {
+          "StationID": "O6",
+          "StationName": "信義國小",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:25.867"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.317632, 22.630224]
+      },
+      "properties": {
+        "model": {
+          "StationID": "O7",
+          "StationName": "文化中心",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:25.867"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.327731, 22.629413]
+      },
+      "properties": {
+        "model": {
+          "StationID": "O8",
+          "StationName": "五塊厝",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:25.867"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.334651, 22.6272]
+      },
+      "properties": {
+        "model": {
+          "StationID": "O9",
+          "StationName": "苓雅運動園區",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:25.867"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.341045, 22.625055]
+      },
+      "properties": {
+        "model": {
+          "StationID": "O10",
+          "StationName": "衛武營",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:25.867"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.348118, 22.625273]
+      },
+      "properties": {
+        "model": {
+          "StationID": "O11",
+          "StationName": "鳳山西站",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:25.867"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.355166, 22.625953]
+      },
+      "properties": {
+        "model": {
+          "StationID": "O12",
+          "StationName": "鳳山",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:25.867"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.363497, 22.625178]
+      },
+      "properties": {
+        "model": {
+          "StationID": "O13",
+          "StationName": "大東",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:25.867"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.371331, 22.62466]
+      },
+      "properties": {
+        "model": {
+          "StationID": "O14",
+          "StationName": "鳳山國中",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:25.867"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.390528, 22.622122]
+      },
+      "properties": {
+        "model": {
+          "StationID": "OT1",
+          "StationName": "大寮",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:25.867"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.353808, 22.56478]
+      },
+      "properties": {
+        "model": {
+          "StationID": "R3",
+          "StationName": "小港",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:25.867"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.341772, 22.570166]
+      },
+      "properties": {
+        "model": {
+          "StationID": "R4",
+          "StationName": "高雄國際機場",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:25.867"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.328569, 22.580354]
+      },
+      "properties": {
+        "model": {
+          "StationID": "R4A",
+          "StationName": "草衙",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:25.867"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.321686, 22.588482]
+      },
+      "properties": {
+        "model": {
+          "StationID": "R5",
+          "StationName": "前鎮高中",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:25.867"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.315119, 22.596764]
+      },
+      "properties": {
+        "model": {
+          "StationID": "R6",
+          "StationName": "凱旋",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:25.867"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.308079, 22.606047]
+      },
+      "properties": {
+        "model": {
+          "StationID": "R7",
+          "StationName": "獅甲",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:25.867"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.304588, 22.61398]
+      },
+      "properties": {
+        "model": {
+          "StationID": "R8",
+          "StationName": "三多商圈",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:25.867"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.301212, 22.624839]
+      },
+      "properties": {
+        "model": {
+          "StationID": "R9",
+          "StationName": "中央公園",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:25.867"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.301994, 22.631393]
+      },
+      "properties": {
+        "model": {
+          "StationID": "R10",
+          "StationName": "美麗島",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:25.867"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.302703, 22.639694]
+      },
+      "properties": {
+        "model": {
+          "StationID": "R11",
+          "StationName": "高雄車站",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:25.867"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.303413, 22.648495]
+      },
+      "properties": {
+        "model": {
+          "StationID": "R12",
+          "StationName": "後驛",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:25.867"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.303239, 22.657268]
+      },
+      "properties": {
+        "model": {
+          "StationID": "R13",
+          "StationName": "凹子底",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:25.867"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.30336, 22.666158]
+      },
+      "properties": {
+        "model": {
+          "StationID": "R14",
+          "StationName": "巨蛋",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:25.867"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.306619, 22.676686]
+      },
+      "properties": {
+        "model": {
+          "StationID": "R15",
+          "StationName": "生態園區",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:25.867"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.308887, 22.688376]
+      },
+      "properties": {
+        "model": {
+          "StationID": "R16",
+          "StationName": "左營",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:25.867"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.302531, 22.701841]
+      },
+      "properties": {
+        "model": {
+          "StationID": "R17",
+          "StationName": "世運",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:25.867"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.302323, 22.708872]
+      },
+      "properties": {
+        "model": {
+          "StationID": "R18",
+          "StationName": "油廠國小",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:25.867"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.307242, 22.718651]
+      },
+      "properties": {
+        "model": {
+          "StationID": "R19",
+          "StationName": "楠梓科技園區",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:25.867"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.31637, 22.722324]
+      },
+      "properties": {
+        "model": {
+          "StationID": "R20",
+          "StationName": "後勁",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:25.867"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.321014, 22.729529]
+      },
+      "properties": {
+        "model": {
+          "StationID": "R21",
+          "StationName": "都會公園",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:25.867"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.317795, 22.744345]
+      },
+      "properties": {
+        "model": {
+          "StationID": "R22",
+          "StationName": "青埔",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:25.867"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.314698, 22.75316]
+      },
+      "properties": {
+        "model": {
+          "StationID": "R22A",
+          "StationName": "橋頭糖廠",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:25.867"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.310976, 22.760249]
+      },
+      "properties": {
+        "model": {
+          "StationID": "R23",
+          "StationName": "橋頭火車站",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:25.867"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.30188, 22.780642]
+      },
+      "properties": {
+        "model": {
+          "StationID": "R24",
+          "StationName": "岡山高醫",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:25.867"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.29923, 22.79245]
+      },
+      "properties": {
+        "model": {
+          "StationID": "RK1",
+          "StationName": "岡山車站",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:25.867"
+        }
+      }
+    }
+  ]
+}

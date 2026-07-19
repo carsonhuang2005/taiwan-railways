@@ -1,0 +1,275 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.70864, 24.18913]
+      },
+      "properties": {
+        "model": {
+          "StationID": "G0",
+          "StationName": "北屯總站",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:40.81"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.70729, 24.18228]
+      },
+      "properties": {
+        "model": {
+          "StationID": "G3",
+          "StationName": "舊社",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:40.81"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.70145, 24.1808]
+      },
+      "properties": {
+        "model": {
+          "StationID": "G4",
+          "StationName": "松竹",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:40.81"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.69329, 24.17124]
+      },
+      "properties": {
+        "model": {
+          "StationID": "G5",
+          "StationName": "四維國小",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:40.81"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.68486, 24.17219]
+      },
+      "properties": {
+        "model": {
+          "StationID": "G6",
+          "StationName": "文心崇德",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:40.81"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.67059, 24.17368]
+      },
+      "properties": {
+        "model": {
+          "StationID": "G7",
+          "StationName": "文心中清",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:40.81"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.66045, 24.17141]
+      },
+      "properties": {
+        "model": {
+          "StationID": "G8",
+          "StationName": "文華高中",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:40.81"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.65367, 24.16763]
+      },
+      "properties": {
+        "model": {
+          "StationID": "G8a",
+          "StationName": "文心櫻花",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:40.81"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.64903, 24.16199]
+      },
+      "properties": {
+        "model": {
+          "StationID": "G9",
+          "StationName": "市政府",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:40.81"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.64668, 24.15311]
+      },
+      "properties": {
+        "model": {
+          "StationID": "G10",
+          "StationName": "水安宮",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:40.81"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.6466, 24.1454]
+      },
+      "properties": {
+        "model": {
+          "StationID": "G10a",
+          "StationName": "文心森林公園",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:40.81"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.6466, 24.1405]
+      },
+      "properties": {
+        "model": {
+          "StationID": "G11",
+          "StationName": "南屯",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:40.81"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.64635, 24.1326]
+      },
+      "properties": {
+        "model": {
+          "StationID": "G12",
+          "StationName": "豐樂公園",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:40.81"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.6476, 24.1191]
+      },
+      "properties": {
+        "model": {
+          "StationID": "G13",
+          "StationName": "大慶",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:40.81"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.6401, 24.1145]
+      },
+      "properties": {
+        "model": {
+          "StationID": "G14",
+          "StationName": "九張犁",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:40.81"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.63448, 24.11104]
+      },
+      "properties": {
+        "model": {
+          "StationID": "G15",
+          "StationName": "九德",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:40.81"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.6249, 24.1089]
+      },
+      "properties": {
+        "model": {
+          "StationID": "G16",
+          "StationName": "烏日",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:40.81"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.61405, 24.11011]
+      },
+      "properties": {
+        "model": {
+          "StationID": "G17",
+          "StationName": "高鐵臺中站",
+          "UpdateDate": "2026-07-16T00:00:00",
+          "CheckDate": "2026-07-17T00:05:40.81"
+        }
+      }
+    }
+  ]
+}
