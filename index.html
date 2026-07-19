@@ -30,7 +30,7 @@
             box-shadow: 0 2px 6px rgba(0,0,0,0.5);
         }
        
-        /* 🪨 真正的黑曜石控制面板容器 */
+        /* 🪨 黑曜石控制面板容器 */
         #custom-controls {
             background-color: #222222 !important;
             color: #ffffff !important;
@@ -41,15 +41,64 @@
             font-family: 'Noto Sans TC', sans-serif !important;
             margin-top: 10px;
             margin-right: 10px;
+            position: relative;
+            transition: all 0.3s ease; /* 平滑收合動畫 */
+            overflow: hidden;
         }
         
-        /* 表格本體 */
+        /* 縮小後的狀態 */
+        #custom-controls.collapsed {
+            width: 32px !important;
+            height: 32px !important;
+            padding: 0 !important;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        /* 收合按鈕樣式 */
+        .toggle-btn {
+            position: absolute;
+            top: 6px;
+            right: 8px;
+            background: none;
+            border: none;
+            color: #888;
+            font-size: 14px;
+            cursor: pointer;
+            padding: 2px 6px;
+            z-index: 10;
+        }
+        .toggle-btn:hover {
+            color: #fff;
+        }
+        
+        /* 當收合時，隱藏按鈕並改用「齒輪/圖層」圖示撐滿 */
+        #custom-controls.collapsed .toggle-btn {
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: #fff;
+        }
+        
+        /* 表格本體：總寬度縮短到 230px */
         .obsidian-table {
             border-collapse: collapse;
-            width: 260px; /* 可以依喜好調整寬度 */
+            width: 230px; 
+            transition: opacity 0.2s ease;
         }
         
-        /* 表格標頭 (系統 | 車站 | 路線) */
+        /* 當收合時，把表格隱藏 */
+        #custom-controls.collapsed .obsidian-table {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        /* 表格標頭 */
         .obsidian-table th {
             border-bottom: 2px solid #444;
             padding-bottom: 8px;
@@ -59,13 +108,18 @@
             letter-spacing: 1px;
             text-align: center;
         }
-        .obsidian-table th:first-child {
-            text-align: left; /* 「系統」欄位靠左對齊 */
+        
+        /* 🎯 縮短系統欄寬度：強制設定成 135px，右邊兩欄更緊湊 */
+        .obsidian-table th:first-child,
+        .obsidian-table td:first-child {
+            text-align: left;
+            width: 135px;
+            white-space: nowrap;
         }
         
-        /* 表格格子內贅微調 */
+        /* 表格格子內贅 */
         .obsidian-table td {
-            padding: 8px 4px;
+            padding: 6px 2px;
             vertical-align: middle;
             font-size: 13px;
         }
@@ -76,43 +130,37 @@
             text-align: center;
         }
         
-        /* 滑鼠移過去橫列有低調的高亮效果 */
         .obsidian-table tr:hover td {
             background-color: #2a2a2a;
         }
         
-        /* 🪨 黑曜石風自訂核取方塊 (Checkbox) */
+        /* 黑曜石風自訂核取方塊 (Checkbox) */
         .obsidian-table input[type="checkbox"] {
             -webkit-appearance: none;
             appearance: none;
-            width: 16px;
-            height: 16px;
+            width: 15px;
+            height: 15px;
             border: 2px solid #555;
             border-radius: 4px;
-            background-color: #1a1a1a; /* 黑底 */
+            background-color: #1a1a1a;
             cursor: pointer;
             position: relative;
             display: inline-block;
             vertical-align: middle;
-            transition: all 0.2s ease;
             margin: 0;
         }
-        
-        /* 勾選時變白底 */
         .obsidian-table input[type="checkbox"]:checked {
             background-color: #ffffff; 
             border-color: #ffffff;
         }
-        
-        /* 產生精緻的黑勾勾 */
         .obsidian-table input[type="checkbox"]:checked::after {
             content: "";
             position: absolute;
             left: 4px;
             top: 1px;
-            width: 4px;
-            height: 8px;
-            border: solid #1a1a1a; /* 黑勾 */
+            width: 3px;
+            height: 7px;
+            border: solid #1a1a1a;
             border-width: 0 2px 2px 0;
             transform: rotate(45deg);
         }
@@ -381,9 +429,10 @@
             tmrtLayer.addTo(map);    tmrtStationsLayer.addTo(map);
             tymcLayer.addTo(map);    tymcStationsLayer.addTo(map);
 
-            // 💡 1. 自製真正的黑曜石控制表格 HTML
+            // 💡 1. 自製帶有收合按鈕的黑曜石控制表格 HTML
             var tableHtml = `
             <div id="custom-controls" class="leaflet-control">
+                <button class="toggle-btn" id="panel-toggle" title="收合/展開">❌</button>
                 <table class="obsidian-table">
                     <thead>
                         <tr>
@@ -409,7 +458,7 @@
             var controlContainer = document.querySelector('.leaflet-top.leaflet-right');
             controlContainer.insertAdjacentHTML('beforeend', tableHtml);
             
-            // 💡 3. 對照表：把 HTML 標籤跟你的圖層變數綁在一起
+            // 💡 3. 圖層對照表
             var layerMap = {
                 'tra': traLayer,             'traStations': traStationsLayer,
                 'thsr': thsrLayer,           'thsrStations': thsrStationsLayer,
@@ -420,7 +469,31 @@
                 'tymc': tymcLayer,           'tymcStations': tymcStationsLayer
             };
             
-            // 💡 4. 監聽表格內勾選框的切換動作
+            var panel = document.getElementById('custom-controls');
+            var toggleBtn = document.getElementById('panel-toggle');
+            
+            // 💡 4. 收合/展開功能邏輯
+            toggleBtn.addEventListener('click', function(e) {
+                L.DomEvent.stopPropagation(e);
+                panel.classList.toggle('collapsed');
+                
+                // 依狀態更換按鈕圖示
+                if (panel.classList.contains('collapsed')) {
+                    toggleBtn.innerHTML = '☰'; // 縮小時變成圖層選單圖示
+                } else {
+                    toggleBtn.innerHTML = '❌'; // 展開時是關閉叉叉
+                }
+            });
+            
+            // 當處於縮小狀態時，點擊整個小方塊也能直接展開
+            panel.addEventListener('click', function(e) {
+                if (panel.classList.contains('collapsed')) {
+                    panel.classList.remove('collapsed');
+                    toggleBtn.innerHTML = '❌';
+                }
+            });
+            
+            // 💡 5. 監聽表格內勾選框的切換動作
             document.querySelector('.obsidian-table').addEventListener('change', function (e) {
                 var layerKey = e.target.getAttribute('data-layer');
                 var targetLayer = layerMap[layerKey];
@@ -433,10 +506,9 @@
                 }
             });
             
-            // 防止在表格上滾動滑鼠滾輪時，地圖也跟著放大縮小
-            var customCtrl = document.getElementById('custom-controls');
-            L.DomEvent.disableScrollPropagation(customCtrl);
-            L.DomEvent.disableClickPropagation(customCtrl);
+            // 防止地圖跟著滾動與點擊穿透
+            L.DomEvent.disableScrollPropagation(panel);
+            L.DomEvent.disableClickPropagation(panel);
 
             console.log("全台軌道路網完全體渲染成功！");
         })
