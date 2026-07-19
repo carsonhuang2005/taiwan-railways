@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>極簡黑曜石風 - 台灣全鐵道路網圖</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        html, body, #map {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #1a1a1a; /* 極黑背景 */
+        }
+        /* 路線名稱提示框精緻樣式 */
+        .line-tooltip {
+            background-color: rgba(0, 0, 0, 0.8) !important;
+            color: #ffffff !important;
+            border: 1px solid #444 !important;
+            font-size: 11px;
+            font-weight: bold;
+            padding: 4px 8px;
+            border-radius: 4px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+        }
+        /* 自訂 Home 按鈕樣式 */
+        .leaflet-control-home {
+            background-color: #222 !important;
+            border: 2px solid #444 !important;
+            border-radius: 4px;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .leaflet-control-home:hover {
+            background-color: #333 !important;
+        }
+        .leaflet-control-home svg {
+            fill: #ffffff;
+            width: 16px;
+            height: 16px;
+        }
+        /* 黑曜石風圖層控制面板樣式 */
+        .leaflet-control-layers {
+            background-color: #222222 !important;
+            color: #ffffff !important;
+            border: 2px solid #444444 !important;
+            border-radius: 4px;
+            font-family: sans-serif;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .leaflet-control-layers-overlays label {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // 建立獨立的圖層群組（包含線路與車站，方便一鍵開關）
+        var traLineLayer = L.layerGroup();     // 台鐵軌道
+        var thsrLineLayer = L.layerGroup();    // 高鐵軌道
+        var traStationLayer = L.layerGroup();  // 台鐵車站
+        var thsrStationLayer = L.layerGroup(); // 高鐵車站
+
+        // 1. 初始化地圖，將中心點對準台灣
+        var map = L.map('map', {
+            zoomSnap: 0.5,
+            wheelPxPerZoomLevel: 120
+        }).setView([23.6, 121.0], 7.5);
+
+        // 保留 Leaflet 官方標記與英文版權宣告
+        map.attributionControl.addAttribution('Data Curated by Carson Huang, Land Map from <a href="https://github.com/g0v/twgeojson" target="_blank">g0v GitHub</a>, Railway & Station Data from <a href="https://tdx.transportdata.tw/" target="_blank">MOTC TDX</a>');
+
+        // 建立 Home 按鈕
+        L.Control.Home = L.Control.extend({
+            options: { position: 'topleft' },
+            onAdd: function (map) {
+                var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-home');
+                container.innerHTML = '<svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>';
+                container.title = "Reset View";
+                L.DomEvent.on(container, 'click', function (e) {
+                    L.DomEvent.stopPropagation(e);
+                    map.flyTo([23.6, 121.0], 7.5); 
+                });
+                return container;
+            }
+        });
+        map.addControl(new L.Control.Home());
+
+        // 2. 一口氣載入 5 個 JSON 檔案
+        Promise.all([
+            fetch('./twCounty2010.geo.json').then(res => res.json()), // 陸地
+            fetch('./tra_lines.json').then(res => res.json()),       // 台鐵線
+            fetch('./tra_stations.json').then(res => res.json()),    // 台鐵站
+            fetch('./thsr_lines.json').then(res => res.json()),      // 高鐵線
+            fetch('./thsr_stations.json').then(res => res.json())    // 高鐵站
+        ])
+        .then(([landData, traLines, traStations, thsrLines, thsrStations]) => {
+            
+            // 2-1. 渲染深灰色台灣陸地底圖
+            L.geoJSON(landData, {
+                style: {
+                    color: "#262626", weight: 1, fillColor: "#1d1d1d", fillOpacity: 0.9
+                }
+            }).addTo(map);
+
+            // 💡 統一管理顏色對照表
+            function getLineColor(lineId) {
+                if (lineId === "THSR") return "#FF5500";   // 高鐵 / 專屬高速亮橘色
+                if (lineId === "WL") return "#1C3A5E";     // 西部幹線 / 經典鋼鐵藍
+                if (lineId === "WL-C") return "#E67E22";   // 海線 / 日落浪花橘
+                if (lineId === "EL") return "#0083B0";     // 東部幹線 / 太平洋蔚藍
+                if (lineId === "SL") return "#00A86B";     // 南迴線 / 山海交織翠
+                if (lineId === "JJ") return "#D4AC0D";     // 集集線 / 樟香懷舊黃
+                if (lineId === "NW") return "#2E7D32";     // 內灣線 / 野薑花油綠
+                if (lineId === "LJ") return "#4C7FB2";     // 六家線 / 科技銀藍色
+                if (lineId === "PX") return "#7EC0EE";     // 平溪線 / 天燈天青色
+                if (lineId === "SA") return "#34495E";     // 深澳線 / 奇岩海岸藍
+                if (lineId === "SH") return "#FF6F00";     // 沙崙線 / 雙鐵活力橘
+                if (lineId === "SU") return "#40E0D0";     // 蘇澳線 / 冷泉 Tiffany 綠
+                return "#444444";
+            }
+
+            // 💡 封裝畫鐵軌的邏輯（指定渲染到特定圖層中）
+            function drawRailLines(geoJsonData, targetLayer) {
+                L.geoJSON(geoJsonData, {
+                    style: function(feature) {
+                        var model = feature.properties.model || {};
+                        var lineId = model.LineID || "THSR";
+                        return {
+                            color: getLineColor(lineId),
+                            weight: lineId === "THSR" ? 2.5 : 2, 
+                            opacity: 0.85
+                        };
+                    },
+                    onEachFeature: function (feature, layer) {
+                        var model = feature.properties.model || {};
+                        var lineName = model.LineName || "台灣高鐵";
+
+                        if (lineName) {
+                            layer.bindTooltip(lineName, { sticky: true, direction: 'auto', className: 'line-tooltip' });
+                            layer.on('mouseover', function (e) {
+                                var targetLayer = e.target;
+                                var currentLineId = model.LineID || "THSR";
+                                targetLayer.setStyle({
+                                    weight: currentLineId === "THSR" ? 5.5 : 5,
+                                    opacity: 1.0
+                                });
+                                if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) { targetLayer.bringToFront(); }
+                            });
+                            layer.on('mouseout', function (e) {
+                                var targetLayer = e.target;
+                                var currentLineId = model.LineID || "THSR";
+                                targetLayer.setStyle({
+                                    weight: currentLineId === "THSR" ? 2.5 : 2,
+                                    opacity: 0.85
+                                });
+                            });
+                        }
+                    }
+                }).addTo(targetLayer); // 丟進指定的圖層群組中
+            }
+
+            // 2-2. 渲染台鐵與高鐵軌道路線到各自的圖層
+            drawRailLines(traLines, traLineLayer);
+            drawRailLines(thsrLines, thsrLineLayer);
+
+            // 2-3. 渲染台鐵車站點點
+            L.geoJSON(traStations, {
+                pointToLayer: function (feature, latlng) {
+                    var model = feature.properties.model || {};
+                    var id = model.StationID || "";
+                    var idNum = parseInt(id, 10);
+                    var targetLine = "WL";
+
+                    if (idNum >= 900 && idNum <= 1250) {
+                        if (idNum >= 1191 && idNum <= 1193) targetLine = "NW";
+                        else if (idNum >= 1201 && idNum <= 1208) targetLine = "NW";
+                        else if (idNum === 1194) targetLine = "LJ";
+                        else targetLine = "WL";
+                    }
+                    else if (idNum >= 2110 && idNum <= 2260) { targetLine = "WL-C"; }
+                    else if (idNum >= 3140 && idNum <= 4400) {
+                        if (idNum >= 3431 && idNum <= 3436) targetLine = "JJ";
+                        else if (idNum >= 4271 && idNum <= 4272) targetLine = "SH";
+                        else targetLine = "WL";
+                    }
+                    else if (idNum >= 4410 && idNum <= 5000) { targetLine = "WL"; }
+                    else if (idNum >= 5010 && idNum <= 6000) { targetLine = "SL"; }
+                    else if (idNum >= 6010 && idNum <= 7000) { targetLine = "EL"; }
+                    else if (idNum >= 7010 && idNum <= 7110) { targetLine = "EL"; }
+                    else if (idNum === 7130) { targetLine = "EL"; }
+                    else if (idNum === 7120) { targetLine = "SU"; }
+                    else if (idNum >= 7140 && idNum <= 7390) {
+                        if (idNum >= 7331 && idNum <= 7336) targetLine = "PX";
+                        else if (idNum >= 7361 && idNum <= 7362) targetLine = "SA";
+                        else targetLine = "EL";
+                    }
+                    else { targetLine = "OTHER"; }
+
+                    var stationColor = getLineColor(targetLine);
+                    return L.circleMarker(latlng, {
+                        radius: 1.5, fillColor: stationColor, color: stationColor, weight: 1, fillOpacity: 1
+                    });
+                },
+                onEachFeature: function (feature, layer) {
+                    var model = feature.properties.model || {};
+                    var stationName = model.StationName || "未知車站";
+                    layer.bindTooltip(stationName, { permanent: false, direction: 'top' });
+                }
+            }).addTo(traStationLayer);
+
+            // 2-4. 渲染高鐵車站點點
+            L.geoJSON(thsrStations, {
+                pointToLayer: function (feature, latlng) {
+                    var stationColor = getLineColor("THSR");
+                    return L.circleMarker(latlng, {
+                        radius: 1.8,  // 高鐵車站半徑稍微大一點，製造層次感
+                        fillColor: stationColor, color: stationColor, weight: 1, fillOpacity: 1
+                    });
+                },
+                onEachFeature: function (feature, layer) {
+                    var model = feature.properties.model || {};
+                    var stationName = model.StationName || "高鐵車站";
+                    layer.bindTooltip(stationName, { permanent: false, direction: 'top' });
+                }
+            }).addTo(thsrStationLayer);
+
+            // 預設將雙鐵的線路與車站全部開啟並顯示
+            traLineLayer.addTo(map);
+            thsrLineLayer.addTo(map);
+            traStationLayer.addTo(map);
+            thsrStationLayer.addTo(map);
+
+            // 右上角圖層控制面板（現在線路與車站可以完全分開、獨立勾選開關）
+            var overlays = {
+                "TRA Lines": traLineLayer,
+                "TRA Stations": traStationLayer,
+                "THSR Lines": thsrLineLayer,
+                "THSR Stations": thsrStationLayer
+            };
+            L.control.layers(null, overlays, { collapsed: false }).addTo(map);
+
+            console.log("雙鐵黑曜石全圖層開關版路網圖渲染成功！");
+        })
+        .catch(err => {
+            console.error("檔案讀取或渲染失敗，請確認檔案路徑是否正確：", err);
+        });
+    </script>
+</body>
+</html>

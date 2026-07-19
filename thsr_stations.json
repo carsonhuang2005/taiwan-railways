@@ -1,0 +1,185 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [121.60709, 25.053704]
+      },
+      "properties": {
+        "model": {
+          "StationID": "0990",
+          "StationName": "南港",
+          "UpdateDate": "2026-07-17T00:00:00",
+          "CheckDate": "2026-07-17T00:05:09.437"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [121.516983, 25.04767]
+      },
+      "properties": {
+        "model": {
+          "StationID": "1000",
+          "StationName": "台北",
+          "UpdateDate": "2026-07-17T00:00:00",
+          "CheckDate": "2026-07-17T00:05:09.437"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [121.4638, 25.014214]
+      },
+      "properties": {
+        "model": {
+          "StationID": "1010",
+          "StationName": "板橋",
+          "UpdateDate": "2026-07-17T00:00:00",
+          "CheckDate": "2026-07-17T00:05:09.437"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [121.214729, 25.012861]
+      },
+      "properties": {
+        "model": {
+          "StationID": "1020",
+          "StationName": "桃園",
+          "UpdateDate": "2026-07-17T00:00:00",
+          "CheckDate": "2026-07-17T00:05:09.437"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [121.04026, 24.808441]
+      },
+      "properties": {
+        "model": {
+          "StationID": "1030",
+          "StationName": "新竹",
+          "UpdateDate": "2026-07-17T00:00:00",
+          "CheckDate": "2026-07-17T00:05:09.437"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.825272, 24.605448]
+      },
+      "properties": {
+        "model": {
+          "StationID": "1035",
+          "StationName": "苗栗",
+          "UpdateDate": "2026-07-17T00:00:00",
+          "CheckDate": "2026-07-17T00:05:09.437"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.615967, 24.112484]
+      },
+      "properties": {
+        "model": {
+          "StationID": "1040",
+          "StationName": "台中",
+          "UpdateDate": "2026-07-17T00:00:00",
+          "CheckDate": "2026-07-17T00:05:09.437"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.574608, 23.874327]
+      },
+      "properties": {
+        "model": {
+          "StationID": "1043",
+          "StationName": "彰化",
+          "UpdateDate": "2026-07-17T00:00:00",
+          "CheckDate": "2026-07-17T00:05:09.437"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.416512, 23.736231]
+      },
+      "properties": {
+        "model": {
+          "StationID": "1047",
+          "StationName": "雲林",
+          "UpdateDate": "2026-07-17T00:00:00",
+          "CheckDate": "2026-07-17T00:05:09.437"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.323257, 23.459507]
+      },
+      "properties": {
+        "model": {
+          "StationID": "1050",
+          "StationName": "嘉義",
+          "UpdateDate": "2026-07-17T00:00:00",
+          "CheckDate": "2026-07-17T00:05:09.437"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.286201, 22.925077]
+      },
+      "properties": {
+        "model": {
+          "StationID": "1060",
+          "StationName": "台南",
+          "UpdateDate": "2026-07-17T00:00:00",
+          "CheckDate": "2026-07-17T00:05:09.437"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.307487, 22.687391]
+      },
+      "properties": {
+        "model": {
+          "StationID": "1070",
+          "StationName": "左營",
+          "UpdateDate": "2026-07-17T00:00:00",
+          "CheckDate": "2026-07-17T00:05:09.437"
+        }
+      }
+    }
+  ]
+}
