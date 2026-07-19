@@ -30,60 +30,59 @@
             box-shadow: 0 2px 6px rgba(0,0,0,0.5);
         }
        
-        /* 🚂 全新黑曜石風格：表格式圖層控制面板 */
-        .leaflet-control-layers {
+        /* 🪨 真正的黑曜石控制面板容器 */
+        #custom-controls {
             background-color: #222222 !important;
             color: #ffffff !important;
             border: 2px solid #444444 !important;
             border-radius: 8px;
-            padding: 10px !important;
+            padding: 12px !important;
             box-shadow: 0 4px 15px rgba(0,0,0,0.5) !important;
             font-family: 'Noto Sans TC', sans-serif !important;
+            margin-top: 10px;
+            margin-right: 10px;
         }
         
-        /* 移除 Leaflet 預設的換行，改用表格排版 */
-        .leaflet-control-layers-overlays {
-            display: table;
+        /* 表格本體 */
+        .obsidian-table {
             border-collapse: collapse;
-            width: 220px;
+            width: 260px; /* 可以依喜好調整寬度 */
         }
         
-        /* 表格的標題橫列 (系統 | 車站 | 路線) */
-        .leaflet-control-layers-overlays::before {
-            content: "系統\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0| 車站 | 路線";
-            display: block;
+        /* 表格標頭 (系統 | 車站 | 路線) */
+        .obsidian-table th {
             border-bottom: 2px solid #444;
-            padding-bottom: 6px;
-            margin-bottom: 8px;
+            padding-bottom: 8px;
             font-size: 12px;
             color: #888;
             font-weight: bold;
             letter-spacing: 1px;
+            text-align: center;
+        }
+        .obsidian-table th:first-child {
+            text-align: left; /* 「系統」欄位靠左對齊 */
         }
         
-        /* 讓每一列橫向排列 */
-        .leaflet-control-layers-overlays label {
-            display: table-row !important;
-            cursor: pointer;
-        }
-        
-        /* 欄位微調：讓名稱、車站勾選、路線勾選各佔一格 */
-        .leaflet-control-layers-overlays label span {
-            display: table-cell;
-            padding: 6px 4px;
+        /* 表格格子內贅微調 */
+        .obsidian-table td {
+            padding: 8px 4px;
             vertical-align: middle;
             font-size: 13px;
         }
         
-        /* 讓核取方塊靠右並居中 */
-        .leaflet-control-layers-overlays input {
-            display: table-cell;
-            margin: 0 auto !important;
-            vertical-align: middle;
+        /* 讓「車站」與「路線」的勾選框格子在正中間 */
+        .obsidian-table td:nth-child(2), 
+        .obsidian-table td:nth-child(3) {
+            text-align: center;
+        }
+        
+        /* 滑鼠移過去橫列有低調的高亮效果 */
+        .obsidian-table tr:hover td {
+            background-color: #2a2a2a;
         }
         
         /* 🪨 黑曜石風自訂核取方塊 (Checkbox) */
-        .leaflet-control-layers-overlays input[type="checkbox"] {
+        .obsidian-table input[type="checkbox"] {
             -webkit-appearance: none;
             appearance: none;
             width: 16px;
@@ -93,16 +92,20 @@
             background-color: #1a1a1a; /* 黑底 */
             cursor: pointer;
             position: relative;
+            display: inline-block;
+            vertical-align: middle;
             transition: all 0.2s ease;
+            margin: 0;
         }
         
-        .leaflet-control-layers-overlays input[type="checkbox"]:checked {
-            background-color: #ffffff; /* 勾選時變白底 */
+        /* 勾選時變白底 */
+        .obsidian-table input[type="checkbox"]:checked {
+            background-color: #ffffff; 
             border-color: #ffffff;
         }
         
-        /* 產生黑色的勾勾 */
-        .leaflet-control-layers-overlays input[type="checkbox"]:checked::after {
+        /* 產生精緻的黑勾勾 */
+        .obsidian-table input[type="checkbox"]:checked::after {
             content: "";
             position: absolute;
             left: 4px;
@@ -378,24 +381,62 @@
             tmrtLayer.addTo(map);    tmrtStationsLayer.addTo(map);
             tymcLayer.addTo(map);    tymcStationsLayer.addTo(map);
 
-            // 💡 右上角控制面版：車站寫前面、路線寫後面，完美契合「系統 | 車站 | 路線」表格！
-            var overlays = {
-                "臺灣鐵路 (TRA)": traStationsLayer,
-                " ": traLayer,
-                "台灣高鐵 (THSR)": thsrStationsLayer,
-                "  ": thsrLayer,
-                "臺北捷運 (TRTC)": trtcStationsLayer,
-                "   ": trtcLayer,
-                "高雄捷運 (KRTC)": krtcStationsLayer,
-                "    ": krtcLayer,
-                "高雄輕軌 (KLRT)": klrtStationsLayer,
-                "     ": klrtLayer,
-                "臺中捷運 (TMRT)": tmrtStationsLayer,
-                "      ": tmrtLayer,
-                "桃園捷運 (TYMC)": tymcStationsLayer,
-                "       ": tymcLayer
+            // 💡 1. 自製真正的黑曜石控制表格 HTML
+            var tableHtml = `
+            <div id="custom-controls" class="leaflet-control">
+                <table class="obsidian-table">
+                    <thead>
+                        <tr>
+                            <th>系統</th>
+                            <th>車站</th>
+                            <th>路線</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>臺灣鐵路 (TRA)</td><td><input type="checkbox" data-layer="traStations" checked></td><td><input type="checkbox" data-layer="tra" checked></td></tr>
+                        <tr><td>台灣高鐵 (THSR)</td><td><input type="checkbox" data-layer="thsrStations" checked></td><td><input type="checkbox" data-layer="thsr" checked></td></tr>
+                        <tr><td>臺北捷運 (TRTC)</td><td><input type="checkbox" data-layer="trtcStations" checked></td><td><input type="checkbox" data-layer="trtc" checked></td></tr>
+                        <tr><td>高雄捷運 (KRTC)</td><td><input type="checkbox" data-layer="krtcStations" checked></td><td><input type="checkbox" data-layer="krtc" checked></td></tr>
+                        <tr><td>高雄輕軌 (KLRT)</td><td><input type="checkbox" data-layer="klrtStations" checked></td><td><input type="checkbox" data-layer="klrt" checked></td></tr>
+                        <tr><td>臺中捷運 (TMRT)</td><td><input type="checkbox" data-layer="tmrtStations" checked></td><td><input type="checkbox" data-layer="tmrt" checked></td></tr>
+                        <tr><td>桃園捷運 (TYMC)</td><td><input type="checkbox" data-layer="tymcStations" checked></td><td><input type="checkbox" data-layer="tymc" checked></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            `;
+            
+            // 💡 2. 把表格塞進地圖右上角
+            var controlContainer = document.querySelector('.leaflet-top.leaflet-right');
+            controlContainer.insertAdjacentHTML('beforeend', tableHtml);
+            
+            // 💡 3. 對照表：把 HTML 標籤跟你的圖層變數綁在一起
+            var layerMap = {
+                'tra': traLayer,             'traStations': traStationsLayer,
+                'thsr': thsrLayer,           'thsrStations': thsrStationsLayer,
+                'trtc': trtcLayer,           'trtcStations': trtcStationsLayer,
+                'krtc': krtcLayer,           'krtcStations': krtcStationsLayer,
+                'klrt': klrtLayer,           'klrtStations': klrtStationsLayer,
+                'tmrt': tmrtLayer,           'tmrtStations': tmrtStationsLayer,
+                'tymc': tymcLayer,           'tymcStations': tymcStationsLayer
             };
-            L.control.layers(null, overlays, { collapsed: false }).addTo(map);
+            
+            // 💡 4. 監聽表格內勾選框的切換動作
+            document.querySelector('.obsidian-table').addEventListener('change', function (e) {
+                var layerKey = e.target.getAttribute('data-layer');
+                var targetLayer = layerMap[layerKey];
+                if (targetLayer) {
+                    if (e.target.checked) {
+                        map.addLayer(targetLayer);
+                    } else {
+                        map.removeLayer(targetLayer);
+                    }
+                }
+            });
+            
+            // 防止在表格上滾動滑鼠滾輪時，地圖也跟著放大縮小
+            var customCtrl = document.getElementById('custom-controls');
+            L.DomEvent.disableScrollPropagation(customCtrl);
+            L.DomEvent.disableClickPropagation(customCtrl);
 
             console.log("全台軌道路網完全體渲染成功！");
         })
