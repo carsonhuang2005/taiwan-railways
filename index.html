@@ -97,14 +97,30 @@
         map.addControl(new L.Control.Home());
 
         // 2. 一口氣載入 5 個 JSON 檔案
-        Promise.all([
-            fetch('./data/twCounty2010.geo.json').then(res => res.json()), // 陸地
-            fetch('./data/tra_lines.json').then(res => res.json()),       // 台鐵線
-            fetch('./data/tra_stations.json').then(res => res.json()),    // 台鐵站
-            fetch('./data/thsr_lines.json').then(res => res.json()),      // 高鐵線
-            fetch('./data/thsr_stations.json').then(res => res.json())    // 高鐵站
-        ])
+        // 抓漏專用版：一個一個檔案檢查
+        const files = [
+            { name: '陸地底圖', url: './data/twCounty2010.geo.json' },
+            { name: '台鐵線路', url: './data/tra_lines.json' },
+            { name: '台鐵車站', url: './data/tra_stations.json' },
+            { name: '高鐵線路', url: './data/thsr_lines.json' },
+            { name: '高鐵車站', url: './data/thsr_stations.json' }
+        ];
+
+        Promise.all(
+            files.map(file => 
+                fetch(file.url)
+                    .then(res => {
+                        if (!res.ok) throw new Error(`找不到檔案 (狀態碼 ${res.status})`);
+                        return res.json();
+                    })
+                    .catch(err => {
+                        console.error(`❌ 【${file.name}】讀取失敗！原因：`, err.message || err);
+                        throw err; // 丟出錯誤讓後面知道
+                    })
+            )
+        )
         .then(([landData, traLines, traStations, thsrLines, thsrStations]) => {
+            // ... 底下的程式碼都保持不變 ...
             
             // 2-1. 渲染深灰色台灣陸地底圖
             L.geoJSON(landData, {
