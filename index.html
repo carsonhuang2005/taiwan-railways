@@ -202,6 +202,13 @@
         var tmrtLayer = L.layerGroup(),    tmrtStationsLayer = L.layerGroup();
         var tymcLayer = L.layerGroup(),    tymcStationsLayer = L.layerGroup();
 
+        // 💡  收集所有車站 Marker 的陣列與你的 tanh 公式
+        var allStationMarkers = [];
+        function calculateRadius(zoom, isThsr) {
+            var base = isThsr ? 2.5 : 2.0;
+            return Math.max(base, base + 3.5 * Math.tanh((zoom - 7.5) / 5));
+        }
+        
         // 1. 初始化地圖，將中心點對準台灣（開啟 Canvas 渲染加速）
         var map = L.map('map', {
             zoomSnap: 0.5,
@@ -349,17 +356,20 @@
                     }
 
                     var stationColor = getLineColor(finalLineId);
-                    return L.circleMarker(latlng, {
-                        radius: systemPrefix === null ? 2.5 : 2, // 高鐵大點，捷運小點
+                    var marker = L.circleMarker(latlng, {
+                        radius: calculateRadius(currentZoom, isThsr), // 💡  初始大小套用公式
                         fillColor: stationColor,
                         color: stationColor,
                         weight: 1,
                         fillOpacity: 1,
+                        stroke: true
+                    }).setStyle({ stroke: true, weight: 6, color: 'transparent' });
 
-                        // 增加一個寬達 15 像素的「隱形滑鼠偵測外圈」，讓滑鼠靠近就能觸發
-                        stroke: true,
-                        bubbleTooltip: true // 允許泡泡提示提早觸發
-                    }).setStyle({ stroke: true, weight: 6, color: 'transparent' }); // 👈 強制把外框變成 6px 寬的透明點點！
+                    // 💡 紀錄屬性並放入陣列
+                    marker.options.isThsr = isThsr;
+                    allStationMarkers.push(marker);
+
+                    return marker;
                 },
                 onEachFeature: function (feature, layer) {
                     var model = feature.properties.model || {};
@@ -449,7 +459,15 @@
             tmrtLayer.addTo(map);    tmrtStationsLayer.addTo(map);
             tymcLayer.addTo(map);    tymcStationsLayer.addTo(map);
 
-// =========================================================================
+            // 💡  當地圖縮放時，用公式即時更新所有點的大小
+            map.on('zoomend', function() {
+                var currentZoom = map.getZoom();
+                allStationMarkers.forEach(marker => {
+                    marker.setRadius(calculateRadius(currentZoom, marker.options.isThsr));
+                });
+            });
+
+            // =========================================================================
             // 💡 自製黑曜石控制面板 (改用 Leaflet 官方標準 Control 擴充，完美防噴錯)
             // =========================================================================
             L.Control.ObsidianPanel = L.Control.extend({
