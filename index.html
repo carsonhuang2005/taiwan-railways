@@ -317,7 +317,8 @@
                     var model = feature.properties.model || {};
                     var stationId = model.StationID || "";
                     var finalLineId = "";
-
+                    
+                    var isThsr = (systemPrefix === null && !isTra);
                     if (isTra) {
                         // 保留你原本精心調教的台鐵車站判斷邏輯
                         var idNum = parseInt(stationId, 10);
