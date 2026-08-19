@@ -357,7 +357,7 @@
 
                     var stationColor = getLineColor(finalLineId);
                     var marker = L.circleMarker(latlng, {
-                        radius: calculateRadius(currentZoom, isThsr), // 💡  初始大小套用公式
+                        radius: calculateRadius(map.getZoom(), isThsr), // 💡  初始大小套用公式
                         fillColor: stationColor,
                         color: stationColor,
                         weight: 1,
