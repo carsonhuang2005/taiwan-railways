@@ -201,6 +201,8 @@
         var klrtLayer = L.layerGroup(),    klrtStationsLayer = L.layerGroup();
         var tmrtLayer = L.layerGroup(),    tmrtStationsLayer = L.layerGroup();
         var tymcLayer = L.layerGroup(),    tymcStationsLayer = L.layerGroup();
+		var ntmcLayer = L.layerGroup(),    ntmcStationsLayer = L.layerGroup();
+		var ntdlrtLayer = L.layerGroup(),  ntdlrtStationsLayer = L.layerGroup();
 
         // 💡  收集所有車站 Marker 的陣列與你的 tanh 公式
         var allStationMarkers = [];
@@ -269,6 +271,13 @@
 
             // --- 桃園捷運 (TYMC) ---
             if (uniqueLineId === "TYMC-A") return "#8246AF";  // 桃園機捷紫
+			
+			// --- 新北捷運 (NTMC) ---
+			if (uniqueLineId === "NTMC-Y") return "#FFDA00";   // 環狀線黃
+			if (uniqueLineId === "NTMC-LB") return "#50BAD4";  // 三鶯線藍
+
+			// --- 新北淡海輕軌 (NTDLRT) ---
+			if (uniqueLineId === "NTDLRT-V") return "#DC524D"; // 淡海輕軌紅
 
             return "#444444"; // 預設灰色
         }
@@ -396,7 +405,11 @@
             { name: '中捷線路', url: './data/tmrt_lines.json' },
             { name: '中捷車站', url: './data/tmrt_stations.json' },
             { name: '桃捷線路', url: './data/tymc_lines.json' },
-            { name: '桃捷車站', url: './data/tymc_stations.json' }
+            { name: '桃捷車站', url: './data/tymc_stations.json' },
+			{ name: '新北捷運線路', url: './data/ntmc_lines.json' },
+			{ name: '新北捷運車站', url: './data/ntmc_stations.json' },
+			{ name: '淡海輕軌線路', url: './data/ntdlrt_lines.json' },
+			{ name: '淡海輕軌車站', url: './data/ntdlrt_stations.json' }
         ];
 
         Promise.all(
@@ -420,7 +433,9 @@
             krtcLines, krtcStations,
             klrtLines, klrtStations,
             tmrtLines, tmrtStations,
-            tymcLines, tymcStations
+            tymcLines, tymcStations,
+			ntmcLines, ntmcStations,
+			ntdlrtLines, ntdlrtStations
         ]) => {
             
             // 2-1. 渲染台灣陸地底圖（邊線加粗、顏色微調稍白）
@@ -441,6 +456,8 @@
             drawRailLines(klrtLines, klrtLayer, "KLRT", "C");
             drawRailLines(tmrtLines, tmrtLayer, "TMRT", "G");
             drawRailLines(tymcLines, tymcLayer, "TYMC", "A");
+			drawRailLines(ntmcLines, ntmcLayer, "NTMC", "LB");
+			drawRailLines(ntdlrtLines, ntdlrtLayer, "NTDLRT", "V");
 
             // 2-3. 畫車站 (資料來源, 丟進哪個圖層, 系統前綴, 是否為台鐵)
             drawStations(traStations, traStationsLayer, null, true);
@@ -450,6 +467,8 @@
             drawStations(klrtStations, klrtStationsLayer, "KLRT");
             drawStations(tmrtStations, tmrtStationsLayer, "TMRT");
             drawStations(tymcStations, tymcStationsLayer, "TYMC");
+			drawStations(ntmcStations, ntmcStationsLayer, "NTMC");
+			drawStations(ntdlrtStations, ntdlrtStationsLayer, "NTDLRT");
 
             // 預設全部開啟顯示
             traLayer.addTo(map);     traStationsLayer.addTo(map);
@@ -459,6 +478,8 @@
             klrtLayer.addTo(map);    klrtStationsLayer.addTo(map);
             tmrtLayer.addTo(map);    tmrtStationsLayer.addTo(map);
             tymcLayer.addTo(map);    tymcStationsLayer.addTo(map);
+			ntmcLayer.addTo(map);    ntmcStationsLayer.addTo(map);
+			ntdlrtLayer.addTo(map);  ntdlrtStationsLayer.addTo(map);
 
             // 💡  當地圖縮放時，用公式即時更新所有點的大小
             map.on('zoomend', function() {
@@ -497,6 +518,8 @@
                                 <tr><td>高雄輕軌 (KLRT)</td><td><input type="checkbox" data-layer="klrtStations" checked></td><td><input type="checkbox" data-layer="klrt" checked></td></tr>
                                 <tr><td>臺中捷運 (TMRT)</td><td><input type="checkbox" data-layer="tmrtStations" checked></td><td><input type="checkbox" data-layer="tmrt" checked></td></tr>
                                 <tr><td>桃園捷運 (TYMC)</td><td><input type="checkbox" data-layer="tymcStations" checked></td><td><input type="checkbox" data-layer="tymc" checked></td></tr>
+								<tr><td>新北捷運 (NTMC)</td><td><input type="checkbox" data-layer="ntmcStations" checked></td><td><input type="checkbox" data-layer="ntmc" checked></td></tr>
+								<tr><td>淡海輕軌 (NTDLRT)</td><td><input type="checkbox" data-layer="ntdlrtStations" checked></td><td><input type="checkbox" data-layer="ntdlrt" checked></td></tr>
                             </tbody>
                         </table>
                     `;
@@ -520,7 +543,9 @@
                 'krtc': krtcLayer,           'krtcStations': krtcStationsLayer,
                 'klrt': klrtLayer,           'klrtStations': klrtStationsLayer,
                 'tmrt': tmrtLayer,           'tmrtStations': tmrtStationsLayer,
-                'tymc': tymcLayer,           'tymcStations': tymcStationsLayer
+                'tymc': tymcLayer,           'tymcStations': tymcStationsLayer,
+				'ntmc': ntmcLayer,           'ntmcStations': ntmcStationsLayer,
+				'ntdlrt': ntdlrtLayer,       'ntdlrtStations': ntdlrtStationsLayer
             };
             
             // 抓取剛剛渲染出來的 DOM 元素做事件綁定
