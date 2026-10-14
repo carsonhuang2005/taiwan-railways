@@ -1,0 +1,215 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [121.458851, 25.155597]
+      },
+      "properties": {
+        "model": {
+          "StationID": "V01",
+          "StationName": "紅樹林",
+          "UpdateDate": "2023-10-17T00:00:00",
+          "CheckDate": "2026-07-17T00:05:38.557"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [121.456232, 25.162415]
+      },
+      "properties": {
+        "model": {
+          "StationID": "V02",
+          "StationName": "竿蓁林",
+          "UpdateDate": "2023-10-17T00:00:00",
+          "CheckDate": "2026-07-17T00:05:38.557"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [121.460813, 25.169363]
+      },
+      "properties": {
+        "model": {
+          "StationID": "V03",
+          "StationName": "淡金鄧公",
+          "UpdateDate": "2023-10-17T00:00:00",
+          "CheckDate": "2026-07-17T00:05:38.557"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [121.456082, 25.176959]
+      },
+      "properties": {
+        "model": {
+          "StationID": "V04",
+          "StationName": "淡江大學",
+          "UpdateDate": "2023-10-17T00:00:00",
+          "CheckDate": "2026-07-17T00:05:38.557"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [121.452366, 25.181131]
+      },
+      "properties": {
+        "model": {
+          "StationID": "V05",
+          "StationName": "淡金北新",
+          "UpdateDate": "2023-10-17T00:00:00",
+          "CheckDate": "2026-07-17T00:05:38.557"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [121.448258, 25.183817]
+      },
+      "properties": {
+        "model": {
+          "StationID": "V06",
+          "StationName": "新市一路",
+          "UpdateDate": "2023-10-17T00:00:00",
+          "CheckDate": "2026-07-17T00:05:38.557"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [121.444482, 25.189017]
+      },
+      "properties": {
+        "model": {
+          "StationID": "V07",
+          "StationName": "淡水行政中心",
+          "UpdateDate": "2023-10-17T00:00:00",
+          "CheckDate": "2026-07-17T00:05:38.557"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [121.43738, 25.18977]
+      },
+      "properties": {
+        "model": {
+          "StationID": "V08",
+          "StationName": "濱海義山",
+          "UpdateDate": "2023-10-17T00:00:00",
+          "CheckDate": "2026-07-17T00:05:38.557"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [121.431589, 25.190501]
+      },
+      "properties": {
+        "model": {
+          "StationID": "V09",
+          "StationName": "濱海沙崙",
+          "UpdateDate": "2023-10-17T00:00:00",
+          "CheckDate": "2026-07-17T00:05:38.557"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [121.432471, 25.195691]
+      },
+      "properties": {
+        "model": {
+          "StationID": "V10",
+          "StationName": "淡海新市鎮",
+          "UpdateDate": "2023-10-17T00:00:00",
+          "CheckDate": "2026-07-17T00:05:38.557"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [121.434651, 25.200994]
+      },
+      "properties": {
+        "model": {
+          "StationID": "V11",
+          "StationName": "崁頂",
+          "UpdateDate": "2023-10-17T00:00:00",
+          "CheckDate": "2026-07-17T00:05:38.557"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [121.426365, 25.191141]
+      },
+      "properties": {
+        "model": {
+          "StationID": "V28",
+          "StationName": "台北海洋大學",
+          "UpdateDate": "2023-10-17T00:00:00",
+          "CheckDate": "2026-07-17T00:05:38.557"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [121.417331, 25.187536]
+      },
+      "properties": {
+        "model": {
+          "StationID": "V27",
+          "StationName": "沙崙",
+          "UpdateDate": "2023-10-17T00:00:00",
+          "CheckDate": "2026-07-17T00:05:38.557"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [121.418605, 25.182005]
+      },
+      "properties": {
+        "model": {
+          "StationID": "V26",
+          "StationName": "淡水漁人碼頭",
+          "UpdateDate": "2023-10-17T00:00:00",
+          "CheckDate": "2026-07-17T00:05:38.557"
+        }
+      }
+    }
+  ]
+}
