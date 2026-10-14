@@ -5,14 +5,14 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [121.418744, 24.959351]
+        "coordinates": [121.4205, 24.96012]
       },
       "properties": {
         "model": {
           "StationID": "BL01",
           "StationName": "頂埔",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -27,7 +27,7 @@
           "StationID": "BL02",
           "StationName": "永寧",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -42,7 +42,7 @@
           "StationID": "BL03",
           "StationName": "土城",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -50,14 +50,14 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [121.448787, 24.985348]
+        "coordinates": [121.44873, 24.985305]
       },
       "properties": {
         "model": {
           "StationID": "BL04",
           "StationName": "海山",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -72,7 +72,7 @@
           "StationID": "BL05",
           "StationName": "亞東醫院",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -87,7 +87,7 @@
           "StationID": "BL06",
           "StationName": "府中",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -95,14 +95,14 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [121.462671, 25.014098]
+        "coordinates": [121.462305, 25.013825]
       },
       "properties": {
         "model": {
           "StationID": "BL07",
           "StationName": "板橋",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -110,14 +110,14 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [121.468363, 25.023736]
+        "coordinates": [121.468055, 25.02327]
       },
       "properties": {
         "model": {
           "StationID": "BL08",
           "StationName": "新埔",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -132,7 +132,7 @@
           "StationID": "BL09",
           "StationName": "江子翠",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -147,7 +147,7 @@
           "StationID": "BL10",
           "StationName": "龍山寺",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -155,14 +155,14 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [121.508511, 25.042274]
+        "coordinates": [121.508175, 25.042025]
       },
       "properties": {
         "model": {
           "StationID": "BL11",
           "StationName": "西門",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -177,7 +177,7 @@
           "StationID": "BL12",
           "StationName": "台北車站",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -192,7 +192,7 @@
           "StationID": "BL13",
           "StationName": "善導寺",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -200,14 +200,14 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [121.5328, 25.0423]
+        "coordinates": [121.53321, 25.042498]
       },
       "properties": {
         "model": {
           "StationID": "BL14",
           "StationName": "忠孝新生",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -215,14 +215,14 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [121.543769, 25.041633]
+        "coordinates": [121.545026, 25.041749]
       },
       "properties": {
         "model": {
           "StationID": "BL15",
           "StationName": "忠孝復興",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -237,7 +237,7 @@
           "StationID": "BL16",
           "StationName": "忠孝敦化",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -252,7 +252,7 @@
           "StationID": "BL17",
           "StationName": "國父紀念館",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -267,7 +267,7 @@
           "StationID": "BL18",
           "StationName": "市政府",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -282,7 +282,7 @@
           "StationID": "BL19",
           "StationName": "永春",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -297,7 +297,7 @@
           "StationID": "BL20",
           "StationName": "後山埤",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -312,7 +312,7 @@
           "StationID": "BL21",
           "StationName": "昆陽",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -327,7 +327,7 @@
           "StationID": "BL22",
           "StationName": "南港",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -342,7 +342,7 @@
           "StationID": "BL23",
           "StationName": "南港展覽館",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -357,7 +357,7 @@
           "StationID": "BR01",
           "StationName": "動物園",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -372,7 +372,7 @@
           "StationID": "BR02",
           "StationName": "木柵",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -387,7 +387,7 @@
           "StationID": "BR03",
           "StationName": "萬芳社區",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -402,7 +402,7 @@
           "StationID": "BR04",
           "StationName": "萬芳醫院",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -417,7 +417,7 @@
           "StationID": "BR05",
           "StationName": "辛亥",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -432,7 +432,7 @@
           "StationID": "BR06",
           "StationName": "麟光",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -447,7 +447,7 @@
           "StationID": "BR07",
           "StationName": "六張犁",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -462,7 +462,7 @@
           "StationID": "BR08",
           "StationName": "科技大樓",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -477,7 +477,7 @@
           "StationID": "BR09",
           "StationName": "大安",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -485,14 +485,14 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [121.543703, 25.041104]
+        "coordinates": [121.545026, 25.041749]
       },
       "properties": {
         "model": {
           "StationID": "BR10",
           "StationName": "忠孝復興",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -507,7 +507,7 @@
           "StationID": "BR11",
           "StationName": "南京復興",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -522,7 +522,7 @@
           "StationID": "BR12",
           "StationName": "中山國中",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -530,14 +530,14 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [121.55162, 25.063111]
+        "coordinates": [121.55201, 25.062908]
       },
       "properties": {
         "model": {
           "StationID": "BR13",
           "StationName": "松山機場",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -552,7 +552,7 @@
           "StationID": "BR14",
           "StationName": "大直",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -567,7 +567,7 @@
           "StationID": "BR15",
           "StationName": "劍南路",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -582,7 +582,7 @@
           "StationID": "BR16",
           "StationName": "西湖",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -597,7 +597,7 @@
           "StationID": "BR17",
           "StationName": "港墘",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -605,14 +605,14 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [121.584973, 25.078567]
+        "coordinates": [121.584999, 25.078455]
       },
       "properties": {
         "model": {
           "StationID": "BR18",
           "StationName": "文德",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -627,7 +627,7 @@
           "StationID": "BR19",
           "StationName": "內湖",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -642,7 +642,7 @@
           "StationID": "BR20",
           "StationName": "大湖公園",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -657,7 +657,7 @@
           "StationID": "BR21",
           "StationName": "葫洲",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -672,7 +672,7 @@
           "StationID": "BR22",
           "StationName": "東湖",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -680,14 +680,14 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [121.61586, 25.059911]
+        "coordinates": [121.615, 25.05992]
       },
       "properties": {
         "model": {
           "StationID": "BR23",
           "StationName": "南港軟體園區",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -702,7 +702,7 @@
           "StationID": "BR24",
           "StationName": "南港展覽館",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -710,14 +710,14 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [121.5377, 24.958181]
+        "coordinates": [121.53746, 24.95761]
       },
       "properties": {
         "model": {
           "StationID": "G01",
           "StationName": "新店",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -732,7 +732,7 @@
           "StationID": "G02",
           "StationName": "新店區公所",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -740,14 +740,14 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [121.543129, 24.975036]
+        "coordinates": [121.542985, 24.97545]
       },
       "properties": {
         "model": {
           "StationID": "G03",
           "StationName": "七張",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -762,7 +762,7 @@
           "StationID": "G04",
           "StationName": "大坪林",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -777,7 +777,7 @@
           "StationID": "G05",
           "StationName": "景美",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -792,7 +792,7 @@
           "StationID": "G06",
           "StationName": "萬隆",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -807,7 +807,7 @@
           "StationID": "G07",
           "StationName": "公館",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -822,7 +822,7 @@
           "StationID": "G08",
           "StationName": "台電大樓",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -837,7 +837,7 @@
           "StationID": "G09",
           "StationName": "古亭",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -852,7 +852,7 @@
           "StationID": "G10",
           "StationName": "中正紀念堂",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -860,14 +860,14 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [121.510798, 25.035619]
+        "coordinates": [121.51088, 25.035585]
       },
       "properties": {
         "model": {
           "StationID": "G11",
           "StationName": "小南門",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -875,14 +875,14 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [121.508511, 25.042274]
+        "coordinates": [121.508175, 25.042025]
       },
       "properties": {
         "model": {
           "StationID": "G12",
           "StationName": "西門",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -897,7 +897,7 @@
           "StationID": "G13",
           "StationName": "北門",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -912,7 +912,7 @@
           "StationID": "G14",
           "StationName": "中山",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -927,7 +927,7 @@
           "StationID": "G15",
           "StationName": "松江南京",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -942,7 +942,7 @@
           "StationID": "G16",
           "StationName": "南京復興",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -957,7 +957,7 @@
           "StationID": "G17",
           "StationName": "台北小巨蛋",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -972,7 +972,7 @@
           "StationID": "G18",
           "StationName": "南京三民",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -987,7 +987,7 @@
           "StationID": "G19",
           "StationName": "松山",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1002,7 +1002,7 @@
           "StationID": "G03A",
           "StationName": "小碧潭",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1017,7 +1017,7 @@
           "StationID": "O01",
           "StationName": "南勢角",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1032,7 +1032,7 @@
           "StationID": "O02",
           "StationName": "景安",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1047,7 +1047,7 @@
           "StationID": "O03",
           "StationName": "永安市場",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1055,14 +1055,14 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [121.515398, 25.01308]
+        "coordinates": [121.515462, 25.013858]
       },
       "properties": {
         "model": {
           "StationID": "O04",
           "StationName": "頂溪",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1077,7 +1077,7 @@
           "StationID": "O05",
           "StationName": "古亭",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1092,7 +1092,7 @@
           "StationID": "O06",
           "StationName": "東門",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1100,14 +1100,14 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [121.532856, 25.041797]
+        "coordinates": [121.53321, 25.042498]
       },
       "properties": {
         "model": {
           "StationID": "O07",
           "StationName": "忠孝新生",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1122,7 +1122,7 @@
           "StationID": "O08",
           "StationName": "松江南京",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1137,7 +1137,7 @@
           "StationID": "O09",
           "StationName": "行天宮",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1152,7 +1152,7 @@
           "StationID": "O10",
           "StationName": "中山國小",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1167,7 +1167,7 @@
           "StationID": "O11",
           "StationName": "民權西路",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1182,7 +1182,7 @@
           "StationID": "O12",
           "StationName": "大橋頭",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1197,7 +1197,7 @@
           "StationID": "O13",
           "StationName": "台北橋",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1205,14 +1205,14 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [121.491451, 25.059808]
+        "coordinates": [121.491421, 25.059451]
       },
       "properties": {
         "model": {
           "StationID": "O14",
           "StationName": "菜寮",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1227,7 +1227,7 @@
           "StationID": "O15",
           "StationName": "三重",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1242,7 +1242,7 @@
           "StationID": "O16",
           "StationName": "先嗇宮",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1250,14 +1250,14 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [121.460479, 25.039862]
+        "coordinates": [121.461655, 25.039735]
       },
       "properties": {
         "model": {
           "StationID": "O17",
           "StationName": "頭前庄",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1272,7 +1272,7 @@
           "StationID": "O18",
           "StationName": "新莊",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1287,7 +1287,7 @@
           "StationID": "O19",
           "StationName": "輔大",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1302,7 +1302,7 @@
           "StationID": "O20",
           "StationName": "丹鳳",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1317,7 +1317,7 @@
           "StationID": "O21",
           "StationName": "迴龍",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1332,7 +1332,7 @@
           "StationID": "O50",
           "StationName": "三重國小",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1340,14 +1340,14 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [121.486455, 25.076794]
+        "coordinates": [121.486795, 25.07646]
       },
       "properties": {
         "model": {
           "StationID": "O51",
           "StationName": "三和國中",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1362,7 +1362,7 @@
           "StationID": "O52",
           "StationName": "徐匯中學",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1377,7 +1377,7 @@
           "StationID": "O53",
           "StationName": "三民高中",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1392,7 +1392,7 @@
           "StationID": "O54",
           "StationName": "蘆洲",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1400,14 +1400,29 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [121.57008, 25.032816]
+        "coordinates": [121.581789, 25.037583]
+      },
+      "properties": {
+        "model": {
+          "StationID": "R01",
+          "StationName": "廣慈/奉天宮",
+          "UpdateDate": "2023-10-17T00:00:00",
+          "CheckDate": "2026-10-05T00:05:18.207"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [121.570116, 25.032395]
       },
       "properties": {
         "model": {
           "StationID": "R02",
           "StationName": "象山",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1415,14 +1430,14 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [121.562755, 25.033028]
+        "coordinates": [121.563667, 25.032865]
       },
       "properties": {
         "model": {
           "StationID": "R03",
           "StationName": "台北101/世貿",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1430,14 +1445,14 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [121.55265, 25.03331]
+        "coordinates": [121.552326, 25.033015]
       },
       "properties": {
         "model": {
           "StationID": "R04",
           "StationName": "信義安和",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1452,7 +1467,7 @@
           "StationID": "R05",
           "StationName": "大安",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1467,7 +1482,7 @@
           "StationID": "R06",
           "StationName": "大安森林公園",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1482,7 +1497,7 @@
           "StationID": "R07",
           "StationName": "東門",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1497,7 +1512,7 @@
           "StationID": "R08",
           "StationName": "中正紀念堂",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1512,7 +1527,7 @@
           "StationID": "R09",
           "StationName": "台大醫院",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1527,7 +1542,7 @@
           "StationID": "R10",
           "StationName": "台北車站",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1542,7 +1557,7 @@
           "StationID": "R11",
           "StationName": "中山",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1557,7 +1572,7 @@
           "StationID": "R12",
           "StationName": "雙連",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1572,7 +1587,7 @@
           "StationID": "R13",
           "StationName": "民權西路",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1587,7 +1602,7 @@
           "StationID": "R14",
           "StationName": "圓山",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1602,7 +1617,7 @@
           "StationID": "R15",
           "StationName": "劍潭",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1617,7 +1632,7 @@
           "StationID": "R16",
           "StationName": "士林",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1632,7 +1647,7 @@
           "StationID": "R17",
           "StationName": "芝山",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1647,7 +1662,7 @@
           "StationID": "R18",
           "StationName": "明德",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1662,7 +1677,7 @@
           "StationID": "R19",
           "StationName": "石牌",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1677,7 +1692,7 @@
           "StationID": "R20",
           "StationName": "唭哩岸",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1692,7 +1707,7 @@
           "StationID": "R21",
           "StationName": "奇岩",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1707,7 +1722,7 @@
           "StationID": "R22",
           "StationName": "北投",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1715,14 +1730,14 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [121.485457, 25.137474]
+        "coordinates": [121.485456, 25.137497]
       },
       "properties": {
         "model": {
           "StationID": "R23",
           "StationName": "復興崗",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1730,14 +1745,14 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [121.473293, 25.131041]
+        "coordinates": [121.473298, 25.130923]
       },
       "properties": {
         "model": {
           "StationID": "R24",
           "StationName": "忠義",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1745,14 +1760,14 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [121.4671, 25.12563]
+        "coordinates": [121.467, 25.12551]
       },
       "properties": {
         "model": {
           "StationID": "R25",
           "StationName": "關渡",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1767,7 +1782,7 @@
           "StationID": "R26",
           "StationName": "竹圍",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1782,7 +1797,7 @@
           "StationID": "R27",
           "StationName": "紅樹林",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1797,7 +1812,7 @@
           "StationID": "R28",
           "StationName": "淡水",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     },
@@ -1812,7 +1827,7 @@
           "StationID": "R22A",
           "StationName": "新北投",
           "UpdateDate": "2023-10-17T00:00:00",
-          "CheckDate": "2026-07-17T00:05:17.85"
+          "CheckDate": "2026-10-05T00:05:18.207"
         }
       }
     }
