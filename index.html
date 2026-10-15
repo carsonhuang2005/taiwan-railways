@@ -75,24 +75,58 @@
             cursor: pointer;
         }
         
-        /* 收合按鈕樣式 */
-        .toggle-btn {
-            position: absolute;
-            top: 6px;
-            right: 8px;
-            background: none;
-            border: none;
-            color: #888;
-            font-size: 14px;
-            cursor: pointer;
-            padding: 2px 6px;
-            z-index: 10;
-        }
-        .toggle-btn:hover {
-            color: #fff;
+        /* 🪨 黑曜石控制面板容器 (微調上邊距與 overflow 讓懸掛按鈕不被切掉) */
+        #custom-controls {
+            background-color: #222222 !important;
+            color: #ffffff !important;
+            border: 2px solid #444444 !important;
+            border-radius: 8px;
+            padding: 12px 12px 12px 12px !important; /* ✨ 上方改留 16px 空間給懸掛按鈕 */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5) !important;
+            font-family: 'Noto Sans TC', sans-serif !important;
+            margin-top: 10px;
+            margin-right: 10px;
+            position: relative;
+            transition: all 0.3s ease; /* 平滑收合動畫 */
+            overflow: visible; /* ✨ 必須設為 visible 才能讓右上角的按鈕凸出邊緣 */
         }
         
-        /* 當收合時，隱藏按鈕並改用「齒輪/圖層」圖示撐滿 */
+        /* 縮小後的狀態 */
+        #custom-controls.collapsed {
+            width: 32px !important;
+            height: 32px !important;
+            padding: 0 !important;
+            border-radius: 4px;
+            cursor: pointer;
+            overflow: hidden !important; /* 收合時隱藏溢出內容 */
+        }
+        
+        /* 🪨 收合按鈕樣式（完美定位在右上角角落、帶有圓圈底與紅色叉叉） */
+        .toggle-btn {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: #333333;
+            color: #888;
+            border: 2px solid #555555;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            font-size: 11px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+        .toggle-btn:hover {
+            background-color: #505050;
+            transform: scale(1.05); /* 滑鼠懸停時微幅放大 */
+        }
+        
+        /* 當收合時，隱藏按鈕並改用「圖層」圖示撐滿小方塊 */
         #custom-controls.collapsed .toggle-btn {
             top: 0;
             right: 0;
@@ -103,8 +137,12 @@
             justify-content: center;
             font-size: 16px;
             color: #fff;
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            border-radius: 4px;
         }
-        
+		
         /* 表格本體：總寬度縮短到 230px */
         .obsidian-table {
             border-collapse: collapse;
@@ -225,6 +263,112 @@
             letter-spacing: 2px;
             color: #aaaaaa;
         }
+		
+		/* ℹ️ 嵌入在 Leaflet Attribution 中的 About 連結樣式 */
+        /* 讓這個 span 文字看起來像超連結，且滑鼠移上去會變成手指 */
+        .leaflet-control-attribution span.map-about-trigger {
+            color: #0078A8;
+            cursor: pointer;
+        }
+        .leaflet-control-attribution span.map-about-trigger:hover {
+            text-decoration: underline;
+        }
+
+        /* 🪟 彈出視窗（Modal）遮罩背景 */
+        #about-modal {
+            display: none; /* 預設隱藏 */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.75);
+            z-index: 99999;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+
+        /* 🪟 彈出視窗本體（大幅放大尺寸） */
+        .modal-content {
+            background-color: #222222;
+            color: #dddddd;
+            border: 2px solid #444444;
+            border-radius: 12px;
+            width: 92%;
+            max-width: 680px;       /* ✨ 寬度從 500/560px 顯著放大到 680px */
+            max-height: 85vh;
+            overflow-y: auto;
+            padding: 36px 36px;     /* ✨ 內距加寬，大器舒適 */
+            box-shadow: 0 12px 50px rgba(0, 0, 0, 0.85);
+            position: relative;
+        }
+
+        /* 彈出視窗標題列 */
+        .modal-header {
+            font-size: 22px;        /* ✨ 標題字體明顯放大 */
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 22px;
+            border-bottom: 2px solid #383838;
+            padding-bottom: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* 關閉按鈕 */
+        .modal-close {
+            background: none;
+            border: none;
+            color: #aaa;
+            font-size: 26px;        /* ✨ 關閉按鈕放大更好按 */
+            cursor: pointer;
+            padding: 0 4px;
+            transition: color 0.2s ease;
+        }
+        .modal-close:hover {
+            color: #fff;
+        }
+
+        /* 🌟 內文與清單字體全面放大 */
+        .modal-body p {
+            font-size: 15.5px;      /* ✨ 一般段落字體從 13/14px 提升至 15.5px，清晰好讀 */
+            line-height: 1.85;      /* ✨ 搭配舒適的大行高 */
+            color: #dddddd;
+            margin-bottom: 20px;
+        }
+
+        .modal-body h3 {
+            font-size: 17px;        /* ✨ 區塊小標題放大 */
+            color: #ffffff;
+            margin-top: 28px;
+            margin-bottom: 12px;
+            border-left: 4px solid #7EC0EE;
+            padding-left: 10px;
+            font-weight: bold;
+        }
+
+        .modal-body ul {
+            font-size: 15px;        /* ✨ 清單項目字體放大 */
+            color: #cccccc;
+            padding-left: 22px;
+            margin-bottom: 20px;
+        }
+
+        .modal-body li {
+            margin-bottom: 10px;    /* ✨ 清單間距拉開 */
+            line-height: 1.7;
+        }
+
+        .modal-body a {
+            color: #7EC0EE;
+            text-decoration: none;
+        }
+        .modal-body a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -235,7 +379,37 @@
     </div>
 
     <div id="map"></div>
+	<!-- 🪟 彈出視窗結構 -->
+    <div id="about-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span>關於 台灣全鐵道路網圖</span>
+                <button class="modal-close" id="close-about">✕</button>
+            </div>
+            <div class="modal-body">
+                <p>這是一個完整收錄全台鐵路與各大捷運系統的互動式路網圖，旨在提供清晰、美觀且高效能的軌道地理資訊檢視體驗。</p>
+                
+                <h3>資料來源</h3>
+                <ul>
+                    <li><strong>地圖底圖：</strong><a href="https://github.com/g0v/twgeojson" target="_blank">g0v GitHub</a></li>
+                    <li><strong>鐵路與車站數據：</strong><a href="https://tdx.transportdata.tw/" target="_blank">交通部運輸資料流通服務 (MOTC TDX)</a></li>
+                    <li><strong>網頁作者：</strong>Carson Huang (由Google Gemini 協作)</li>
+					
+                </ul>
+				<p style="font-size: 12px; color: #777777; line-height: 1.4; margin-top: 8px;">原先的Attribution：Data Curated by Carson Huang, Land Map from <a href="https://github.com/g0v/twgeojson" target="_blank">g0v GitHub</a>, Railway & Station Data from <a href="https://tdx.transportdata.tw/" target="_blank">MOTC TDX</a></p>
 
+                <h3>更新歷史 (Changelog)</h3>
+                <ul>
+					<li><strong>v2026.10.15：</strong>新增渲染前加載圓圈動畫，調整路線與車站顯示面板，更換地圖Attribution。</li>
+					<li><strong>v2026.10.14：</strong>更新TRTC(廣慈/奉天宮)，新增NTMC、NTDLRT。</li>
+                    <li><strong>v2026.08.20：</strong>重新調整高鐵線路粗細。</li>
+                    <li><strong>v2026.08.19：</strong>調整車站圓點大小在縮放時的邏輯。</li>
+                    <li><strong>v2026.07.19：</strong>初始版本發布，包含台鐵、高鐵、北捷、桃捷、中捷、高捷及高雄輕軌。</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+	
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
         // 建立獨立的圖層群組（捷運依系統分開，方便使用者細緻開關）
@@ -264,7 +438,7 @@
             preferCanvas: true // ✨ 強制 Canvas 渲染，保證加上捷運後完全不卡頓
         }).setView([23.6, 121.0], 7.5);
 
-        map.attributionControl.addAttribution('Data Curated by Carson Huang, Land Map from <a href="https://github.com/g0v/twgeojson" target="_blank">g0v GitHub</a>, Railway & Station Data from <a href="https://tdx.transportdata.tw/" target="_blank">MOTC TDX</a>');
+        map.attributionControl.addAttribution('<span id="open-about" class="map-about-trigger">About the Web</span>');
 
         // Home 按鈕
         L.Control.Home = L.Control.extend({
@@ -644,6 +818,25 @@
                 setTimeout(function() {
                     loader.remove();
                 }, 500); // 配合 CSS 的 0.5 秒轉場特效
+            }
+        });
+		
+		// ℹ️ 點擊 Attribution 裡的 About the Web 打開彈出視窗
+        document.addEventListener('click', function(e) {
+            if (e.target && e.target.id === 'open-about') {
+                e.preventDefault();
+                document.getElementById('about-modal').style.display = 'flex';
+            }
+        });
+
+        // 關閉視窗邏輯
+        document.getElementById('close-about').addEventListener('click', function() {
+            document.getElementById('about-modal').style.display = 'none';
+        });
+
+        document.getElementById('about-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.style.display = 'none';
             }
         });
     </script>
