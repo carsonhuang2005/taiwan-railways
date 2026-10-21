@@ -393,13 +393,15 @@
                 <ul>
                     <li><strong>地圖底圖：</strong><a href="https://github.com/g0v/twgeojson" target="_blank">g0v GitHub</a></li>
                     <li><strong>鐵路與車站數據：</strong><a href="https://tdx.transportdata.tw/" target="_blank">交通部運輸資料流通服務 (MOTC TDX)</a></li>
-                    <li><strong>網頁作者：</strong>Carson Huang (由Google Gemini 協作)</li>
+                    <li><strong>網頁作者：</strong>Carson Huang (由 Google Gemini 協作)</li>
 					
                 </ul>
 				<p style="font-size: 12px; color: #777777; line-height: 1.4; margin-top: 8px;">原先的Attribution：Data Curated by Carson Huang, Land Map from <a href="https://github.com/g0v/twgeojson" target="_blank">g0v GitHub</a>, Railway & Station Data from <a href="https://tdx.transportdata.tw/" target="_blank">MOTC TDX</a></p>
 
                 <h3>更新歷史 (Changelog)</h3>
                 <ul>
+					<li><strong>v2026.10.21：</strong>Hotfix: KRTC-RK、KRTC-OT 車站顏色補齊</li>
+					<li><strong>v2026.10.16：</strong>Hotfix: 成追線CZ 路線顏色補齊</li>
 					<li><strong>v2026.10.15：</strong>新增渲染前加載圓圈動畫，調整路線與車站顯示面板，更換地圖Attribution。</li>
 					<li><strong>v2026.10.14：</strong>更新TRTC(廣慈/奉天宮)，新增NTMC、NTDLRT。</li>
                     <li><strong>v2026.08.20：</strong>重新調整高鐵線路粗細。</li>
@@ -484,7 +486,9 @@
 
             // --- 高雄捷運 (KRTC) & 輕軌 (KLRT) ---
             if (uniqueLineId === "KRTC-R") return "#E30964";  // 高捷紅線
+			if (uniqueLineId === "KRTC-RK") return "#E30964"; // 高捷紅線岡山路竹延伸線
             if (uniqueLineId === "KRTC-O") return "#FF9500";  // 高捷橘線
+			if (uniqueLineId === "KRTC-OT") return "#FF9500"; // 高捷橘線大寮站
             if (uniqueLineId === "KLRT-C") return "#8FC31F";  // 高雄輕軌綠
 
             // --- 台中捷運 (TMRT) ---
