@@ -370,12 +370,60 @@
             text-decoration: underline;
         }
 		
+		/* 🪟 Modal 專屬回到頂部按鈕 */
+		.modal-back-top-btn {
+			position: sticky;
+			bottom: 0px;
+			left: 100%;                  /* 靠右對齊 */
+			margin-left: auto;
+			margin-right: -16px;
+			margin-bottom: -16px;
+			width: 36px;
+			height: 36px;
+			border-radius: 50%;
+			background-color: #333333;
+			color: #ffffff;
+			border: 1px solid #555555;
+			font-size: 14px;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+			
+			/* 預設隱藏與動畫 */
+			opacity: 0;
+			visibility: hidden;
+			transition: opacity 0.3s ease, visibility 0.3s ease, background-color 0.2s ease, transform 0.2s ease;
+			z-index: 10;
+		}
+
+		.modal-back-top-btn:hover {
+			background-color: #505050;
+			transform: translateY(-2px);
+		}
+
+		/* 顯示時的狀態 */
+		.modal-back-top-btn.show {
+			opacity: 0.85;
+			visibility: visible;
+		}
+		.modal-back-top-btn.show:hover {
+			opacity: 1;
+		}
+		
 		/* ==========================================
 		   鐵路捷運專屬表格樣式 (.railway-table)
 		   ========================================== */
+		.table-container {
+			width: 100%;
+			overflow-x: auto;
+			margin-bottom: 15px;
+		}
 
 		.railway-table {
-			width: 100%;
+			width: 650px;        /* 固定表格總寬度 */
+			table-layout: fixed; /* 嚴格遵循欄位寬度 */
 			border-collapse: collapse;
 			background-color: transparent;
 			font-family: 'JetBrains Mono', 'Noto Sans TC', sans-serif;
@@ -424,9 +472,81 @@
 			width: 200px;
 		}
 		
+		/* 路線顏色欄：改用 Flexbox 讓圓圈與文字精確對齊 */
 		.railway-table .col-color {
+			text-align: left;
+			width: 95px;
+			white-space: nowrap;
+		}
+
+		/* 透過這個包覆容器達成真正垂直置中與靠左/置中對齊 */
+		.railway-table .col-color-content {
+			display: inline-flex;
+			align-items: left;
+			justify-content: center;
+		}
+
+		/* 圓圈樣式微調 */
+		.color-dot {
+			display: inline-block;
+			width: 12px;
+			height: 12px;
+			border-radius: 50%;
+			background-color: var(--color);
+			margin-right: 6px;
+			flex-shrink: 0; /* 確保圓圈不會被擠壓變形 */
+			border: 1px solid rgba(255, 255, 255, 0.2);
+			box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+		}
+		
+		/* ==========================================
+		   更新歷史表格樣式 (.changelog-table)
+		   ========================================== */
+
+		.changelog-table {
+			width: 650px;        /* 固定表格總寬度，與路線表格一致 */
+			table-layout: fixed; /* 嚴格遵守欄位寬度 */
+			border-collapse: collapse;
+			background-color: transparent;
+			font-family: 'JetBrains Mono', 'Noto Sans TC', sans-serif;
+		}
+
+		.changelog-table th {
+			border-bottom: 2px solid #444;
+			padding: 8px 6px;
+			font-size: 12px;
+			color: #888;
+			font-weight: bold;
+			letter-spacing: 1px;
 			text-align: center;
-			width: 70px;
+		}
+
+		.changelog-table td {
+			padding: 8px 6px;
+			vertical-align: middle;
+			font-size: 13px;
+			border-bottom: 1px solid #333;
+			line-height: 1.5;
+			color: #dddddd;
+		}
+
+		.changelog-table tr:hover td {
+			background-color: #2a2a2a;
+		}
+
+		/* 版本號欄位：靠左、固定 120px */
+		.changelog-table .col-version {
+			text-align: left;
+			width: 120px;
+			color: #dddddd;
+			white-space: nowrap;
+		}
+
+		/* 更新內容欄位：靠左、固定 440px */
+		.changelog-table .col-desc {
+			text-align: left;
+			width: 440px;
+			color: #dddddd;
 		}
     </style>
 </head>
@@ -458,223 +578,301 @@
 				<p style="font-size: 12px; color: #777777; line-height: 1.4; margin-top: 8px;">原先的Attribution：Data Curated by Carson Huang, Land Map from <a href="https://github.com/g0v/twgeojson" target="_blank">g0v GitHub</a>, Railway & Station Data from <a href="https://tdx.transportdata.tw/" target="_blank">MOTC TDX</a></p>
 				
 				<h3>關於收錄路線</h3>
-				<table class="railway-table">
-					<thead>
-						<tr>
-							<th class="col-system">系統</th>
-							<th class="col-route">路線名稱</th>
-							<th class="col-code">路線代號</th>
-							<th class="col-section">行經區間</th>
-							<th class="col-color">路線顏色</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td class="col-system" rowspan="12">臺灣鐵路</td>
-							<td class="col-route">西部幹線</td>
-							<td class="col-code">WL</td>
-							<td class="col-section">基隆－竹南－臺中－彰化－屏東</td>
-							<td class="col-color">#1C3A5E</td>
-						</tr>
-						<tr>
-							<td class="col-route">西部幹線 (海線)</td>
-							<td class="col-code">WL-C</td>
-							<td class="col-section">竹南－清水－大肚溪南號誌</td>
-							<td class="col-color">#E67E22</td>
-						</tr>
-						<tr>
-							<td class="col-route">東部幹線</td>
-							<td class="col-code">EL</td>
-							<td class="col-section">八堵－花蓮－臺東</td>
-							<td class="col-color">#0083B0</td>
-						</tr>
-						<tr>
-							<td class="col-route">南迴線</td>
-							<td class="col-code">SL</td>
-							<td class="col-section">屏東－臺東</td>
-							<td class="col-color">#00A86B</td>
-						</tr>
-						<tr>
-							<td class="col-route">成追線</td>
-							<td class="col-code">CZ</td>
-							<td class="col-section">追分－成功</td>
-							<td class="col-color">#FFD700</td>
-						</tr>
-						<tr>
-							<td class="col-route">深澳線</td>
-							<td class="col-code">SA</td>
-							<td class="col-section">瑞芳－八斗子</td>
-							<td class="col-color">#34495E</td>
-						</tr>
-						<tr>
-							<td class="col-route">平溪線</td>
-							<td class="col-code">PX</td>
-							<td class="col-section">三貂嶺－菁桐</td>
-							<td class="col-color">#7EC0EE</td>
-						</tr>
-						<tr>
-							<td class="col-route">內灣線</td>
-							<td class="col-code">NW</td>
-							<td class="col-section">新竹－內灣</td>
-							<td class="col-color">#2E7D32</td>
-						</tr>
-						<tr>
-							<td class="col-route">六家線</td>
-							<td class="col-code">LJ</td>
-							<td class="col-section">竹中－六家</td>
-							<td class="col-color">#4C7FB2</td>
-						</tr>
-						<tr>
-							<td class="col-route">集集線</td>
-							<td class="col-code">JJ</td>
-							<td class="col-section">二水－車埕</td>
-							<td class="col-color">#D4AC0D</td>
-						</tr>
-						<tr>
-							<td class="col-route">沙崙線</td>
-							<td class="col-code">SH</td>
-							<td class="col-section">中洲－沙崙</td>
-							<td class="col-color">#FF6F00</td>
-						</tr>
-						<tr>
-							<td class="col-route">蘇澳線</td>
-							<td class="col-code">SU</td>
-							<td class="col-section">蘇澳新－蘇澳</td>
-							<td class="col-color">#40E0D0</td>
-						</tr>
-						
-						<tr>
-							<td class="col-system">台灣高鐵</td>
-							<td class="col-route">台灣高鐵</td>
-							<td class="col-code">(N/A)</td>
-							<td class="col-section">南港－左營</td>
-							<td class="col-color">#FF5500</td>
-						</tr>
-						
-						<tr>
-							<td class="col-system" rowspan="5">臺北捷運</td>
-							<td class="col-route">文湖線</td>
-							<td class="col-code">BR</td>
-							<td class="col-section">動物園－南港展覽館</td>
-							<td class="col-color">#C48D32</td>
-						</tr>
-						<tr>
-							<td class="col-route">淡水信義線</td>
-							<td class="col-code">R</td>
-							<td class="col-section">廣慈/奉天宮－淡水</td>
-							<td class="col-color">#E4002C</td>
-						</tr>
-						<tr>
-							<td class="col-route">松山新店線</td>
-							<td class="col-code">G</td>
-							<td class="col-section">新店－松山</td>
-							<td class="col-color">#008659</td>
-						</tr>
-						<tr>
-							<td class="col-route">中和新蘆線</td>
-							<td class="col-code">O</td>
-							<td class="col-section">南勢角－大橋頭－迴龍<br>大橋頭－蘆洲</td>
-							<td class="col-color">#F8B616</td>
-						</tr>
-						<tr>
-							<td class="col-route">板南線</td>
-							<td class="col-code">BL</td>
-							<td class="col-section">頂埔－南港展覽館</td>
-							<td class="col-color">#0070BD</td>
-						</tr>
-						
-						<tr>
-							<td class="col-system" rowspan="2">新北捷運</td>
-							<td class="col-route">環狀線</td>
-							<td class="col-code">Y</td>
-							<td class="col-section">新北產業園區－大坪林</td>
-							<td class="col-color">#FFDA00</td>
-						</tr>
-						<tr>
-							<td class="col-route">三鶯線</td>
-							<td class="col-code">LB</td>
-							<td class="col-section">頂埔－鶯桃福德</td>
-							<td class="col-color">#50BAD4</td>
-						</tr>
-						
-						<tr>
-							<td class="col-system">淡海輕軌</td>
-							<td class="col-route">綠山線<br>藍海線</td>
-							<td class="col-code">V</td>
-							<td class="col-section">紅樹林－崁頂<br>濱海沙崙－淡水漁人碼頭</td>
-							<td class="col-color">#DC524D</td>
-						</tr>
-						
-						<tr>
-							<td class="col-system">桃園捷運</td>
-							<td class="col-route">機場捷運</td>
-							<td class="col-code">A</td>
-							<td class="col-section">台北車站－老街溪</td>
-							<td class="col-color">#8246AF</td>
-						</tr>
-						
-						<tr>
-							<td class="col-system">臺中捷運</td>
-							<td class="col-route">烏日文心北屯線</td>
-							<td class="col-code">G</td>
-							<td class="col-section">北屯總站－高鐵台中站</td>
-							<td class="col-color">#8EC31C</td>
-						</tr>
-						
-						<tr>
-							<td class="col-system" rowspan="2">高雄捷運</td>
-							<td class="col-route">紅線</td>
-							<td class="col-code">R</td>
-							<td class="col-section">小港－岡山車站</td>
-							<td class="col-color">#E30964</td>
-						</tr>
-						<tr>
-							<td class="col-route">橘線</td>
-							<td class="col-code">O</td>
-							<td class="col-section">哈瑪星－大寮</td>
-							<td class="col-color">#FF9500</td>
-						</tr>
-						
-						<tr>
-							<td class="col-system">高雄輕軌</td>
-							<td class="col-route">環狀輕軌</td>
-							<td class="col-code">C</td>
-							<td class="col-section">籬仔內－籬仔內</td>
-							<td class="col-color">#8FC31F</td>
-						</tr>
-					</tbody>
-				</table>
+				<div class="railway-table-container">
+					<table class="railway-table">
+						<thead>
+							<tr>
+								<th class="col-system">系統</th>
+								<th class="col-route">路線名稱</th>
+								<th class="col-code">路線代號</th>
+								<th class="col-section">行經區間</th>
+								<th class="col-color">路線顏色</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="col-system" rowspan="12">臺灣鐵路</td>
+								<td class="col-route">西部幹線</td>
+								<td class="col-code">WL</td>
+								<td class="col-section">基隆－竹南－臺中－彰化－屏東</td>
+								<td class="col-color"><span class="col-color-content"><span class="color-dot" style="--color: #1C3A5E;"></span>#1C3A5E</span></td>
+							</tr>
+							<tr>
+								<td class="col-route">西部幹線 (海線)</td>
+								<td class="col-code">WL-C</td>
+								<td class="col-section">竹南－清水－大肚溪南號誌</td>
+								<td class="col-color"><span class="col-color-content"><span class="color-dot" style="--color: #E67E22;"></span>#E67E22</span></td>
+							</tr>
+							<tr>
+								<td class="col-route">東部幹線</td>
+								<td class="col-code">EL</td>
+								<td class="col-section">八堵－花蓮－臺東</td>
+								<td class="col-color"><span class="col-color-content"><span class="color-dot" style="--color: #0083B0;"></span>#0083B0</span></td>
+							</tr>
+							<tr>
+								<td class="col-route">南迴線</td>
+								<td class="col-code">SL</td>
+								<td class="col-section">屏東－臺東</td>
+								<td class="col-color"><span class="col-color-content"><span class="color-dot" style="--color: #00A86B;"></span>#00A86B</span></td>
+							</tr>
+							<tr>
+								<td class="col-route">成追線</td>
+								<td class="col-code">CZ</td>
+								<td class="col-section">追分－成功</td>
+								<td class="col-color"><span class="col-color-content"><span class="color-dot" style="--color: #FFD700;"></span>#FFD700</span></td>
+							</tr>
+							<tr>
+								<td class="col-route">深澳線</td>
+								<td class="col-code">SA</td>
+								<td class="col-section">瑞芳－八斗子</td>
+								<td class="col-color"><span class="col-color-content"><span class="color-dot" style="--color: #34495E;"></span>#34495E</span></td>
+							</tr>
+							<tr>
+								<td class="col-route">平溪線</td>
+								<td class="col-code">PX</td>
+								<td class="col-section">三貂嶺－菁桐</td>
+								<td class="col-color"><span class="col-color-content"><span class="color-dot" style="--color: #7EC0EE;"></span>#7EC0EE</span<</td>
+							</tr>
+							<tr>
+								<td class="col-route">內灣線</td>
+								<td class="col-code">NW</td>
+								<td class="col-section">新竹－內灣</td>
+								<td class="col-color"><span class="col-color-content"><span class="color-dot" style="--color: #2E7D32;"></span>#2E7D32</span></td>
+							</tr>
+							<tr>
+								<td class="col-route">六家線</td>
+								<td class="col-code">LJ</td>
+								<td class="col-section">竹中－六家</td>
+								<td class="col-color"><span class="col-color-content"><span class="color-dot" style="--color: #4C7FB2;"></span>#4C7FB2</span></td>
+							</tr>
+							<tr>
+								<td class="col-route">集集線</td>
+								<td class="col-code">JJ</td>
+								<td class="col-section">二水－車埕</td>
+								<td class="col-color"><span class="col-color-content"><span class="color-dot" style="--color: #D4AC0D;"></span>#D4AC0D</span></td>
+							</tr>
+							<tr>
+								<td class="col-route">沙崙線</td>
+								<td class="col-code">SH</td>
+								<td class="col-section">中洲－沙崙</td>
+								<td class="col-color"><span class="col-color-content"><span class="color-dot" style="--color: #FF6F00;"></span>#FF6F00</span></td>
+							</tr>
+							<tr>
+								<td class="col-route">蘇澳線</td>
+								<td class="col-code">SU</td>
+								<td class="col-section">蘇澳新－蘇澳</td>
+								<td class="col-color"><span class="col-color-content"><span class="color-dot" style="--color: #40E0D0;"></span>#40E0D0</span></td>
+							</tr>
+							
+							<tr>
+								<td class="col-system">台灣高鐵</td>
+								<td class="col-route">台灣高鐵</td>
+								<td class="col-code">(N/A)</td>
+								<td class="col-section">南港－左營</td>
+								<td class="col-color"><span class="col-color-content"><span class="color-dot" style="--color: #FF5500;"></span>#FF5500</span></td>
+							</tr>
+							
+							<tr>
+								<td class="col-system" rowspan="5">臺北捷運</td>
+								<td class="col-route">文湖線</td>
+								<td class="col-code">BR</td>
+								<td class="col-section">動物園－南港展覽館</td>
+								<td class="col-color"><span class="col-color-content"><span class="color-dot" style="--color: #C48D32;"></span>#C48D32</span></td>
+							</tr>
+							<tr>
+								<td class="col-route">淡水信義線</td>
+								<td class="col-code">R</td>
+								<td class="col-section">廣慈/奉天宮－淡水</td>
+								<td class="col-color"><span class="col-color-content"><span class="color-dot" style="--color: #E4002C;"></span>#E4002C</span></td>
+							</tr>
+							<tr>
+								<td class="col-route">松山新店線</td>
+								<td class="col-code">G</td>
+								<td class="col-section">新店－松山</td>
+								<td class="col-color"><span class="col-color-content"><span class="color-dot" style="--color: #008659;"></span>#008659</span></td>
+							</tr>
+							<tr>
+								<td class="col-route">中和新蘆線</td>
+								<td class="col-code">O</td>
+								<td class="col-section">南勢角－大橋頭－迴龍<br>大橋頭－蘆洲</td>
+								<td class="col-color"><span class="col-color-content"><span class="color-dot" style="--color: #F8B616;"></span>#F8B616</span></td>
+							</tr>
+							<tr>
+								<td class="col-route">板南線</td>
+								<td class="col-code">BL</td>
+								<td class="col-section">頂埔－南港展覽館</td>
+								<td class="col-color"><span class="col-color-content"><span class="color-dot" style="--color: #40E0D0;"></span>#0070BD</span></td>
+							</tr>
+							
+							<tr>
+								<td class="col-system" rowspan="2">新北捷運</td>
+								<td class="col-route">環狀線</td>
+								<td class="col-code">Y</td>
+								<td class="col-section">新北產業園區－大坪林</td>
+								<td class="col-color"><span class="col-color-content"><span class="color-dot" style="--color: #FFDA00;"></span>#FFDA00</span></td>
+							</tr>
+							<tr>
+								<td class="col-route">三鶯線</td>
+								<td class="col-code">LB</td>
+								<td class="col-section">頂埔－鶯桃福德</td>
+								<td class="col-color"><span class="col-color-content"><span class="color-dot" style="--color: #50BAD4;"></span>#50BAD4</span></td>
+							</tr>
+							
+							<tr>
+								<td class="col-system">淡海輕軌</td>
+								<td class="col-route">綠山線<br>藍海線</td>
+								<td class="col-code">V</td>
+								<td class="col-section">紅樹林－崁頂<br>濱海沙崙－淡水漁人碼頭</td>
+								<td class="col-color"><span class="col-color-content"><span class="color-dot" style="--color: #DC524D;"></span>#DC524D</span></td>
+							</tr>
+							
+							<tr>
+								<td class="col-system">安坑輕軌</td>
+								<td class="col-route">安坑線</td>
+								<td class="col-code">K</td>
+								<td class="col-section">雙城－十四張</td>
+								<td class="col-color"><span class="col-color-content"><span class="color-dot" style="--color: #9B8D5E;"></span>#9B8F5E</span></td>
+							</tr>
+							
+							<tr>
+								<td class="col-system">桃園捷運</td>
+								<td class="col-route">機場捷運</td>
+								<td class="col-code">A</td>
+								<td class="col-section">台北車站－老街溪</td>
+								<td class="col-color"><span class="col-color-content"><span class="color-dot" style="--color: #8246AF;"></span>#8246AF</span></td>
+							</tr>
+							
+							<tr>
+								<td class="col-system">臺中捷運</td>
+								<td class="col-route">烏日文心北屯線</td>
+								<td class="col-code">G</td>
+								<td class="col-section">北屯總站－高鐵台中站</td>
+								<td class="col-color"><span class="col-color-content"><span class="color-dot" style="--color: #8EC31C;"></span>#8EC31C</span></td>
+							</tr>
+							
+							<tr>
+								<td class="col-system" rowspan="2">高雄捷運</td>
+								<td class="col-route">紅線</td>
+								<td class="col-code">R</td>
+								<td class="col-section">小港－岡山車站</td>
+								<td class="col-color"><span class="col-color-content"><span class="color-dot" style="--color: #E30964;"></span>#E30964</span></td>
+							</tr>
+							<tr>
+								<td class="col-route">橘線</td>
+								<td class="col-code">O</td>
+								<td class="col-section">哈瑪星－大寮</td>
+								<td class="col-color"><span class="col-color-content"><span class="color-dot" style="--color: #FF9500;"></span>#FF9500</span></td>
+							</tr>
+							
+							<tr>
+								<td class="col-system">高雄輕軌</td>
+								<td class="col-route">環狀輕軌</td>
+								<td class="col-code">C</td>
+								<td class="col-section">籬仔內－籬仔內</td>
+								<td class="col-color"><span class="col-color-content"><span class="color-dot" style="--color: #8FC31F;"></span>#8FC31F</span></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 				<p style="font-size: 12px; color: #777777; line-height: 1.4; margin-top: 8px;">
 				備註：<br>
-				1. 路線資訊及名稱來自TDX，故推測台鐵路線是以營運管理方式標示，而路線代號為TDX上提供的。<br>
+				1. 路線資訊及名稱來自TDX，台鐵路線是以營運方式標示，路線代號來自TDX資料。高鐵無路線代號。<br>
 				2. 除臺中捷運外，其餘捷運公司之路線名稱皆為現在營運路線名稱，而非建設時的名稱。(如：文湖線=木柵線+內湖線)<br>
 				3. 臺中捷運路線名稱及代號以建設名稱標記，營運名為「綠線」，代號為「1」。<br>
 				4. TDX中將捷運與輕軌拆分，新北捷運與高雄捷運所管理的輕軌路線被拆分為個別系統。<br>
-				5. 台灣糖業公司營運的糖業鐵路亦為交通部管理的範疇。<br><br>
-				6. 台鐵與高鐵路線顏色由 Gemini 推薦提供使用，請注意此並非正式使用顏色。<br>
+				5. 台灣糖業公司營運的糖業鐵路亦為交通部管理的範疇，但本網站未列入。<br><br>
+				6. 台鐵與高鐵路線顏色由 Gemini 推薦使用之顏色，請注意此並非官方使用之顏色。<br>
 				7. 以下路線顏色來自捷運公司官網HTML：台北捷運全線、新北捷運環狀線(來自台北捷運官網)、高雄捷運全線、高雄輕軌。<br>
 				8. 以下路線顏色來自維基百科模板：桃園捷運、臺中捷運。<br>
 				9. 以下路線顏色來自捷運公司官網路線圖吸取：淡海輕軌、安坑輕軌、新北捷運三鶯線。
 				</p>
 				
                 <h3>更新歷史 (Changelog)</h3>
-                <ul>
-					<li><strong>v2026.11.03：</strong>新增關於資訊</li>
-					<li><strong>v2026.10.28：</strong>更新TRA(新增1105 平鎮、移除1998 樹林調車場)</li>
-					<li><strong>v2026.10.21：</strong>Hotfix: KRTC-RK、KRTC-OT 車站顏色補齊</li>
-					<li><strong>v2026.10.16：</strong>Hotfix: 成追線CZ 路線顏色補齊</li>
-					<li><strong>v2026.10.15：</strong>新增渲染前加載圓圈動畫，調整路線與車站顯示面板，更換地圖Attribution。</li>
-					<li><strong>v2026.10.14：</strong>更新TRTC(廣慈/奉天宮)，新增NTMC、NTDLRT。</li>
-                    <li><strong>v2026.08.20：</strong>重新調整高鐵線路粗細。</li>
-                    <li><strong>v2026.08.19：</strong>調整車站圓點大小在縮放時的邏輯。</li>
-                    <li><strong>v2026.07.19：</strong>初始版本發布，包含台鐵、高鐵、北捷、桃捷、中捷、高捷及高雄輕軌。</li>
-                </ul>
+				<div class="table-container">
+					<table class="changelog-table">
+						<thead>
+							<tr>
+								<th class="col-version">版本號</th>
+								<th class="col-desc">更新內容</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="col-version">v2026.11.08</td>
+								<td class="col-desc">更新關於資訊(調整路線表格與更新歷史排版)</td>
+							</tr>
+							<tr>
+								<td class="col-version">v2026.11.03</td>
+								<td class="col-desc">新增關於資訊</td>
+							</tr>
+							<tr>
+								<td class="col-version">v2026.10.28</td>
+								<td class="col-desc">更新TRA(新增1105平鎮、移除1998樹林調車場)</td>
+							</tr>
+							<tr>
+								<td class="col-version">v2026.10.21</td>
+								<td class="col-desc">Hotfix: KRTC-RK、KRTC-OT車站顏色補齊</td>
+							</tr>
+							<tr>
+								<td class="col-version">v2026.10.16</td>
+								<td class="col-desc">Hotfix: 成追線(CZ)路線顏色補齊</td>
+							</tr>
+							<tr>
+								<td class="col-version">v2026.10.15</td>
+								<td class="col-desc">新增渲染前加載圓圈動畫，調整路線與車站顯示面板，更換地圖Attribution。</td>
+							</tr>
+							<tr>
+								<td class="col-version">v2026.10.14</td>
+								<td class="col-desc">更新TRTC(廣慈/奉天宮)，新增NTMC、NTDLRT。</td>
+							</tr>
+							<tr>
+								<td class="col-version">v2026.08.20</td>
+								<td class="col-desc">重新調整高鐵線路粗細。</td>
+							</tr>
+							<tr>
+								<td class="col-version">v2026.08.19</td>
+								<td class="col-desc">調整車站圓點大小在縮放時的邏輯。</td>
+							</tr>
+							<tr>
+								<td class="col-version">v2026.07.19</td>
+								<td class="col-desc">初始版本發布，包含台鐵、高鐵、北捷、桃捷、中捷、高捷及高雄輕軌。</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
             </div>
+			<!-- ✨ 回到頂部按鈕 -->
+			<button id="modal-back-to-top" class="modal-back-top-btn" title="回到頂部">▲</button>
         </div>
     </div>
 	
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
+		// 💡 About Modal 專屬 Back to Top 功能
+		(function() {
+			var modalContent = document.querySelector('.modal-content');
+			var backToTopBtn = document.getElementById('modal-back-to-top');
+
+			if (modalContent && backToTopBtn) {
+				// 監聽 Modal 內部的垂直滾動
+				modalContent.addEventListener('scroll', function() {
+					if (modalContent.scrollTop > 200) { // 超過 200px 時顯示按鈕
+						backToTopBtn.classList.add('show');
+					} else {
+						backToTopBtn.classList.remove('show');
+					}
+				});
+
+				// 點擊滑動回頂部
+				backToTopBtn.addEventListener('click', function() {
+					modalContent.scrollTo({
+						top: 0,
+						behavior: 'smooth' // 平滑滑動效果
+					});
+				});
+			}
+		})();
+
         // 建立獨立的圖層群組（捷運依系統分開，方便使用者細緻開關）
         // 將「路線」與「車站」圖層徹底分開宣告，達成表格獨立開關
         var traLayer = L.layerGroup(),     traStationsLayer = L.layerGroup();
