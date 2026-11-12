@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>台灣全鐵道路網圖 - Carson Huang's Blog</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-	<script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
     <style>
         /* 引入 Google Noto Sans TC 字體 */
         @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Noto+Sans+TC:wght@100..900&family=Noto+Sans+JP:wght@100..900&family=Noto+Sans+KR:wght@100..900&display=swap');
@@ -30,6 +30,22 @@
             border-radius: 4px;
             box-shadow: 0 2px 6px rgba(0,0,0,0.5);
         }
+		
+		/* 車站名稱提示框精緻樣式（白底黑字版） */
+		.station-tooltip {
+			background-color: rgba(255, 255, 255, 0.8) !important;
+			color: #222222 !important;
+			border: 1px solid #ccc !important;
+			font-size: 11px;
+			padding: 4px 8px;
+			border-radius: 4px;
+			box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+		}
+		.station-tooltip.leaflet-tooltip-top::before {
+		    bottom: -1px !important;
+			border-top-color: rgba(255, 255, 255, 0.8) !important;
+		}
+
         /* 自訂 Home 按鈕樣式 */
         .leaflet-control-home {
             background-color: #222 !important;
@@ -346,46 +362,54 @@
             text-decoration: underline;
         }
 		
-		/* 🪟 Modal 專屬回到頂部按鈕 */
+		/* 🪟 Modal 專屬回到頂部按鈕（圓圈內部填滿 #222222） */
 		.modal-back-top-btn {
 			position: sticky;
 			bottom: 0px;
-			left: 100%;                  /* 靠右對齊 */
+			left: 100%;
 			margin-left: auto;
 			margin-right: -16px;
 			margin-bottom: -16px;
-			width: 36px;
-			height: 36px;
+
+			/* 讓按鈕本體比圖示略小一圈，確保 #222222 剛好填滿圓內不外溢 */
+			width: 32px;
+			height: 32px;
 			border-radius: 50%;
-			background-color: #333333;
-			color: #ffffff;
-			border: 1px solid #555555;
-			font-size: 14px;
+			background-color: #222222;
+			border: none;
+			padding: 0;
+			overflow: visible;
+
+			color: #aaaaaa; /* 控制圓框線條與中間箭頭的顏色 */
 			cursor: pointer;
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-			
+
 			/* 預設隱藏與動畫 */
 			opacity: 0;
 			visibility: hidden;
-			transition: opacity 0.3s ease, visibility 0.3s ease, background-color 0.2s ease, transform 0.2s ease;
+			transition: opacity 0.3s ease, visibility 0.3s ease, color 0.2s ease, transform 0.2s ease;
 			z-index: 10;
 		}
 
 		.modal-back-top-btn:hover {
-			background-color: #505050;
+			color: #ffffff;
 			transform: translateY(-2px);
 		}
 
-		/* 顯示時的狀態 */
 		.modal-back-top-btn.show {
-			opacity: 0.85;
+			opacity: 0.95;
 			visibility: visible;
 		}
 		.modal-back-top-btn.show:hover {
 			opacity: 1;
+		}
+
+		/* 圖示稍微大於 32px 容器，外框線條會完美包住 #222222 圓底 */
+		.modal-back-top-btn .iconify {
+			font-size: 34px;
+			flex-shrink: 0;
 		}
 		
 		/* ==========================================
@@ -822,7 +846,7 @@
 				</div>
             </div>
 			<!-- ✨ 回到頂部按鈕 -->
-			<button id="modal-back-to-top" class="modal-back-top-btn" title="回到頂部"><iconify-icon icon="mdi:arrow-up"></iconify-icon></button>
+			<button id="modal-back-to-top" class="modal-back-top-btn" title="Back to Top"><span class="iconify" data-icon="bi:arrow-up-circle"></span></button>
         </div>
     </div>
 	
@@ -1072,7 +1096,7 @@
                     }, { 
                         permanent: false, 
                         direction: 'top',
-                        className: 'line-tooltip'
+						className: 'station-tooltip'
                     });
 					
                     return marker;
