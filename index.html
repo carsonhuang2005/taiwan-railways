@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>台灣全鐵道路網圖 - Carson Huang's Blog</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+	<script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
     <style>
         /* 引入 Google Noto Sans TC 字體 */
         @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Noto+Sans+TC:wght@100..900&family=Noto+Sans+JP:wght@100..900&family=Noto+Sans+KR:wght@100..900&display=swap');
@@ -48,31 +49,6 @@
             fill: #ffffff;
             width: 16px;
             height: 16px;
-        }
-        
-        /* 🪨 黑曜石控制面板容器 */
-        #custom-controls {
-            background-color: #222222 !important;
-            color: #ffffff !important;
-            border: 2px solid #444444 !important;
-            border-radius: 8px;
-            padding: 12px !important;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5) !important;
-            font-family: 'Noto Sans TC', sans-serif !important;
-            margin-top: 10px;
-            margin-right: 10px;
-            position: relative;
-            transition: all 0.3s ease; /* 平滑收合動畫 */
-            overflow: hidden;
-        }
-        
-        /* 縮小後的狀態 */
-        #custom-controls.collapsed {
-            width: 32px !important;
-            height: 32px !important;
-            padding: 0 !important;
-            border-radius: 4px;
-            cursor: pointer;
         }
         
         /* 🪨 黑曜石控制面板容器 (微調上邊距與 overflow 讓懸掛按鈕不被切掉) */
@@ -175,7 +151,7 @@
             white-space: nowrap;
         }
         
-        /* 表格格子內贅 */
+        /* 表格格子內距 */
         .obsidian-table td {
             padding: 6px 2px;
             vertical-align: middle;
@@ -482,7 +458,7 @@
 		/* 透過這個包覆容器達成真正垂直置中與靠左/置中對齊 */
 		.railway-table .col-color-content {
 			display: inline-flex;
-			align-items: left;
+			align-items: center;
 			justify-content: center;
 		}
 
@@ -578,7 +554,7 @@
 				<p style="font-size: 12px; color: #777777; line-height: 1.4; margin-top: 8px;">原先的Attribution：Data Curated by Carson Huang, Land Map from <a href="https://github.com/g0v/twgeojson" target="_blank">g0v GitHub</a>, Railway & Station Data from <a href="https://tdx.transportdata.tw/" target="_blank">MOTC TDX</a></p>
 				
 				<h3>關於收錄路線</h3>
-				<div class="railway-table-container">
+				<div class="table-container">
 					<table class="railway-table">
 						<thead>
 							<tr>
@@ -595,7 +571,7 @@
 								<td class="col-route">西部幹線</td>
 								<td class="col-code">WL</td>
 								<td class="col-section">基隆－竹南－臺中－彰化－屏東</td>
-								<td class="col-color"><span class="col-color-content"><span class="color-dot" style="--color: #1C3A5E;"></span>#1C3A5E</span></td>
+								<td class="col-color"><span class="col-color-content"><span class="color-dot" style="--color: #003B73;"></span>#003B73</span></td>
 							</tr>
 							<tr>
 								<td class="col-route">西部幹線 (海線)</td>
@@ -631,7 +607,7 @@
 								<td class="col-route">平溪線</td>
 								<td class="col-code">PX</td>
 								<td class="col-section">三貂嶺－菁桐</td>
-								<td class="col-color"><span class="col-color-content"><span class="color-dot" style="--color: #7EC0EE;"></span>#7EC0EE</span<</td>
+								<td class="col-color"><span class="col-color-content"><span class="color-dot" style="--color: #7EC0EE;"></span>#7EC0EE</span></td>
 							</tr>
 							<tr>
 								<td class="col-route">內灣線</td>
@@ -731,7 +707,7 @@
 								<td class="col-route">安坑線</td>
 								<td class="col-code">K</td>
 								<td class="col-section">雙城－十四張</td>
-								<td class="col-color"><span class="col-color-content"><span class="color-dot" style="--color: #9B8D5E;"></span>#9B8F5E</span></td>
+								<td class="col-color"><span class="col-color-content"><span class="color-dot" style="--color: #9B8F5E;"></span>#9B8F5E</span></td>
 							</tr>
 							
 							<tr>
@@ -798,6 +774,10 @@
 						</thead>
 						<tbody>
 							<tr>
+								<td class="col-version">v2026.11.12</td>
+								<td class="col-desc">新增靠近車站原點時顯示車站編號功能、調整台鐵西部幹線顏色</td>
+							</tr>
+							<tr>
 								<td class="col-version">v2026.11.08</td>
 								<td class="col-desc">更新關於資訊(調整路線表格與更新歷史排版)</td>
 							</tr>
@@ -842,7 +822,7 @@
 				</div>
             </div>
 			<!-- ✨ 回到頂部按鈕 -->
-			<button id="modal-back-to-top" class="modal-back-top-btn" title="回到頂部">▲</button>
+			<button id="modal-back-to-top" class="modal-back-top-btn" title="回到頂部"><iconify-icon icon="mdi:arrow-up"></iconify-icon></button>
         </div>
     </div>
 	
@@ -923,7 +903,7 @@
             if (uniqueLineId === "THSR") return "#FF5500";   // 高鐵專屬橘
 
             // --- 台鐵 ---
-            if (uniqueLineId === "WL") return "#1C3A5E";     // 西部幹線 / 經典鋼鐵藍
+            if (uniqueLineId === "WL") return "#003B73";     // 西部幹線 / 經典鋼鐵藍
             if (uniqueLineId === "WL-C") return "#E67E22";   // 海線 / 日落浪花橘
 			if (uniqueLineId === "CZ") return "#FFD700";     // 成追線 / 金閃閃黃色
             if (uniqueLineId === "EL") return "#0083B0";     // 東部幹線 / 太平洋蔚藍
@@ -1002,13 +982,15 @@
                 }
             }).addTo(targetLayer);
         }
-
+		
+		var stationCoordMap = {};
         // 💡 封裝畫車站點點的邏輯（自動辨識捷運代碼開頭）
         function drawStations(geoJsonData, targetLayer, systemPrefix, isTra = false) {
             L.geoJSON(geoJsonData, {
                 pointToLayer: function (feature, latlng) {
                     var model = feature.properties.model || {};
                     var stationId = model.StationID || "";
+                    var stationName = model.StationName || "未知車站";
                     var finalLineId = "";
                     
                     var isThsr = (systemPrefix === null && !isTra);
@@ -1050,6 +1032,18 @@
                     }
 
                     var stationColor = getLineColor(finalLineId);
+					
+					var coordKey = `${latlng.lat},${latlng.lng}`;
+                    if (!stationCoordMap[coordKey]) {
+                        stationCoordMap[coordKey] = [];
+                    }
+                    stationCoordMap[coordKey].push({
+                        id: stationId,
+                        name: stationName,
+                        color: stationColor,
+                        layerGroup: targetLayer
+                    });
+					
                     var marker = L.circleMarker(latlng, {
                         radius: calculateRadius(map.getZoom(), isThsr), // 💡  初始大小套用公式
                         fillColor: stationColor,
@@ -1062,14 +1056,27 @@
                     // 💡 紀錄屬性並放入陣列
                     marker.options.isThsr = isThsr;
                     allStationMarkers.push(marker);
+					
+					marker.bindTooltip(function() {
+                        var stationsHere = stationCoordMap[coordKey] || [];
+                        
+                        var visibleStations = stationsHere.filter(function(st) {
+                            return map.hasLayer(st.layerGroup);
+                        });
 
+                        return visibleStations.map(function(st) {
+                            var dot = `<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${st.color};margin-right:6px;"></span>`;
+                            var displayText = st.id ? `${st.id} ${st.name}` : st.name;
+                            return `<div style="line-height: 1.6; white-space: nowrap;">${dot}${displayText}</div>`;
+                        }).join('');
+                    }, { 
+                        permanent: false, 
+                        direction: 'top',
+                        className: 'line-tooltip'
+                    });
+					
                     return marker;
                 },
-                onEachFeature: function (feature, layer) {
-                    var model = feature.properties.model || {};
-                    var stationName = model.StationName || "未知車站";
-                    layer.bindTooltip(stationName, { permanent: false, direction: 'top' });
-                }
             }).addTo(targetLayer);
         }
 
